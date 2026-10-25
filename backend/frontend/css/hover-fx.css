@@ -1,0 +1,9 @@
+@media(hover:hover) and (pointer:fine){
+.cta .btn,.bd2c,.sv2c{transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s ease}
+.sv2a i{transition:transform .28s cubic-bezier(.2,.7,.2,1)}
+.cta .btn:hover{transform:translateY(-3px)!important;box-shadow:0 10px 22px rgba(16,41,74,.22)}
+.bd2c:hover{transform:translateY(-6px);box-shadow:0 16px 34px rgba(16,41,74,.18)}
+.sv2c:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(16,41,74,.28)}
+.sv2c:hover .sv2a i{transform:translateX(3px)}
+}
+@media(prefers-reduced-motion:reduce){.cta .btn,.bd2c,.sv2c,.sv2a i{transition:none!important;transform:none!important}}

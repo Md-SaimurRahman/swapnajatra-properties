@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Admin — Swapnajatra Properties Ltd.</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div id="login" class="login" hidden>
+  <form id="loginForm" class="login-card" autocomplete="on" novalidate>
+    <div class="brand"><span class="mark">S</span><div><b>SWAPNAJATRA</b><small>ADMIN LOGIN</small></div></div>
+    <label for="lu">Username or email</label>
+    <input id="lu" name="username" autocomplete="username" required>
+    <label for="lp">Password</label>
+    <div class="pw"><input id="lp" name="password" type="password" autocomplete="current-password" required><button type="button" id="lpT" class="link">Show</button></div>
+    <p id="lerr" class="err" role="alert"></p>
+    <button class="btn" type="submit" id="lbtn">Log in</button>
+    <a class="back" href="/">← Back to website</a>
+  </form>
+</div>
+
+<div id="app" class="app" hidden>
+  <aside id="side" class="side" aria-label="Admin navigation">
+    <div class="brand"><span class="mark">S</span><div><b>SWAPNAJATRA</b><small>ADMIN</small></div></div>
+    <nav id="nav"></nav>
+    <button class="navb out" id="logout" type="button">Logout</button>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+  <div class="main">
+    <header class="top"><button id="burger" class="icon" aria-label="Open navigation" type="button">☰</button><h1 id="title"></h1><a class="link" href="/" target="_blank" rel="noopener">View website ↗</a></header>
+    <main id="view" tabindex="-1"></main>
+  </div>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+/* mobile v2 - phone polish */
+@media(max-width:560px){
+#h2{padding:18px 16px 20px!important;gap:14px!important}
+.h2in h1{font-size:38px!important;line-height:1.05}
+.h2p{font-size:14.5px!important;line-height:1.45}
+.h2ic{display:grid!important;grid-template-columns:1fr 1fr 1fr;gap:8px!important}
+.h2ic>div{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;font-size:12px;line-height:1.25}
+.h2ic .h2i{width:40px;height:40px}
+.h2b{gap:10px}
+.h2b a{min-height:46px;font-size:14px}
+.h2ch{max-width:none!important;width:100%!important;box-sizing:border-box;display:grid!important;grid-template-columns:84px minmax(0,1fr);column-gap:14px;align-items:center;text-align:left!important;padding:14px 16px!important}
+.h2ch .h2ph{grid-row:1/4;width:84px!important;height:84px!important;margin:0!important;border-width:2px}
+.h2ch h3{font-size:19px!important}
+.h2ch .h2ti{font-size:10px!important;letter-spacing:.24em!important;margin:2px 0 6px!important}
+.h2ch p{font-size:12.5px!important;line-height:1.4!important}
+.h2bar{border-radius:14px}
+.h2c{padding:10px 14px!important;min-height:0!important;gap:12px!important}
+.h2bar .h2i{width:42px!important;height:42px!important}
+.h2bar .h2i svg{width:20px;height:20px}
+.h2t small{font-size:11.5px!important}
+.h2t b{font-size:15px!important;margin:2px 0!important;overflow-wrap:anywhere}
+.h2t i{font-size:11.5px!important}
+.h2cta .h2t b{font-size:15px!important}
+.h2go{width:30px;height:30px}
+.waf{padding:8px 13px!important;font-size:12.5px!important;right:12px!important;bottom:14px!important}
+}
+
+/* heart fix v2 - visible favourite button on property cards */
+html:root:root #properties.pr2 .card .hr{position:absolute!important;top:10px!important;right:10px!important;left:auto!important;width:36px!important;height:36px!important;border-radius:50%!important;border:0!important;padding:0!important;z-index:5!important;cursor:pointer;font-size:0!important;line-height:0!important;color:transparent!important;text-shadow:none!important;background-color:rgba(255,255,255,.94)!important;background-repeat:no-repeat!important;background-position:center!important;background-size:20px 20px!important;box-shadow:0 3px 10px rgba(10,30,60,.25)!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230b2347' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 20.5s-8.5-5.2-8.5-11.2A4.8 4.8 0 0112 6.6a4.8 4.8 0 018.5 2.7c0 6-8.5 11.2-8.5 11.2z'/%3E%3C/svg%3E")!important;transition:transform .2s}
+html:root:root #properties.pr2 .card .hr:hover{transform:scale(1.12)!important}
+html:root:root #properties.pr2 .card .hr.on{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e8344f' stroke='%23e8344f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 20.5s-8.5-5.2-8.5-11.2A4.8 4.8 0 0112 6.6a4.8 4.8 0 018.5 2.7c0 6-8.5 11.2-8.5 11.2z'/%3E%3C/svg%3E")!important}
+@media(max-width:560px){html:root:root #properties.pr2 .card .hr{top:8px!important;right:8px!important;width:32px!important;height:32px!important;background-size:18px 18px!important}}
+/* heart fix v2b - keep badges clear of the heart */
+html:root:root #properties.pr2 .card .pr2bs{flex-wrap:wrap!important;max-width:calc(100% - 58px)!important;row-gap:5px}
+
+/* menu fix v1 - one clean menu icon on phone (admin button hidden for visitors) */
+@media(max-width:900px){
+html:root:root .dmenu{display:none!important}
+html:root:root nav .ham{display:block!important;font-size:0!important;line-height:0;color:transparent!important;width:44px;height:44px;border-radius:10px;background-color:transparent;background-repeat:no-repeat;background-position:center;background-size:22px 16px;background-image:linear-gradient(#10294a,#10294a),linear-gradient(#10294a,#10294a),linear-gradient(#10294a,#10294a);background-position:center 14px,center 21px,center 28px;background-size:22px 2px,22px 2px,22px 2px;transition:background-color .2s}
+html:root:root nav .ham:active{background-color:rgba(16,41,74,.08)}
+}
+
+/* touch fix v1 - no stuck hover on phones, soft press effect on tap */
+@media(hover:none),(pointer:coarse){
+html:root:root #properties.pr2 .card:hover{transform:none!important;box-shadow:0 6px 22px rgba(16,41,74,.07)!important}
+html:root:root #properties.pr2 .card:active{transform:scale(.975)!important;box-shadow:0 3px 12px rgba(16,41,74,.1)!important}
+.btn,.h2b a,.em2bt button,.sv2c,.bd2c,.h2ch,.h2c{-webkit-tap-highlight-color:transparent}
+.btn,.h2b a,.em2bt button,.sv2c,.bd2c,.h2ch,.h2cta{transition:transform .15s ease,box-shadow .15s ease}
+.btn:active,.h2b a:active,.em2bt button:active,.sv2c:active,.bd2c:active,.h2ch:active,.h2cta:active{transform:scale(.97)!important}
+html:root:root #properties.pr2 .card .hr:active{transform:scale(.88)!important}
+}

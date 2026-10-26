@@ -427,6 +427,30 @@
   }
 
   /* ---------- intercept fetch('/api/...') ---------- */
+  /* ---------- fast first paint: remember the last data, show it instantly, refresh quietly ---------- */
+  var CACHE_KEY = 'swp-boot-v1', freshP = null;
+  function readCache() { try { var c = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null'); return c && c.properties ? c : null; } catch (_) { return null; } }
+  function startFresh() {
+    if (!freshP) freshP = handle('GET', '/bootstrap', {}, undefined).then(function (d) {
+      d = fixUrls(d); try { localStorage.setItem(CACHE_KEY, JSON.stringify(d)); } catch (_) { /* ignore */ } return d;
+    });
+    return freshP;
+  }
+  var onAdmin = /\/admin(\/|$)/.test(location.pathname);
+  if (!onAdmin) {
+    var hadCache = !!readCache();
+    var fp = startFresh(); fp.catch(function () { /* the page shows its built-in text if this fails */ });
+    if (!hadCache) {            // very first visit: keep the page invisible for a moment instead of flashing default text
+      var root = document.documentElement, st = document.createElement('style');
+      st.textContent = 'html.swp-wait body{opacity:0!important}html.swp-fade body{transition:opacity .35s ease}';
+      document.head.appendChild(st); root.classList.add('swp-wait', 'swp-fade');
+      var released = false, release = function () { if (released) return; released = true; root.classList.remove('swp-wait'); };
+      var loaded = new Promise(function (ok) { if (document.readyState === 'complete') ok(); else window.addEventListener('load', ok); });
+      Promise.all([fp.catch(function () {}), loaded]).then(function () { setTimeout(release, 150); });
+      setTimeout(release, 3500);   // safety: never stay hidden
+    }
+  }
+
   window.fetch = async function (input, init) {
     var url = typeof input === 'string' ? input : (input && input.url) || '', u;
     try { u = new URL(url, location.href); } catch (_) { return realFetch(input, init); }
@@ -439,7 +463,11 @@
     if (init.body instanceof FormData) body = init.body;
     else if (typeof init.body === 'string' && init.body) { try { body = JSON.parse(init.body); } catch (_) { body = undefined; } }
     var status = 200, payload;
-    try { payload = fixUrls(await handle(method, m[1] || '/', q, body)); }
+    if (method !== 'GET' && /^\/admin\//.test(m[1] || '')) { try { localStorage.removeItem(CACHE_KEY); } catch (_) { /* ignore */ } }
+    try {
+      if (method === 'GET' && m[1] === '/bootstrap') { var cc = readCache(); payload = cc || await startFresh(); }
+      else payload = fixUrls(await handle(method, m[1] || '/', q, body));
+    }
     catch (e) {
       status = e.status || 500;
       payload = { error: e.message || 'Request failed' };

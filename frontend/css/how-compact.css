@@ -1,0 +1,24 @@
+/* how-compact v1 — slimmer "Our process" section (PC + mobile) */
+html:root:root #how.hw2>.w{grid-template-columns:31% 1fr!important;gap:12px!important;padding:24px 56px!important}
+html:root:root #how.hw2 .hd .sv2e{font-size:11px!important;letter-spacing:.28em!important}
+html:root:root #how.hw2 h2{font-size:32px!important;line-height:1.08!important;margin:4px 0 8px!important}
+html:root:root #how.hw2 .hd p{font-size:14px!important;line-height:1.45!important;max-width:330px!important}
+html:root:root #how.hw2 .st{gap:14px!important}
+html:root:root #how.hw2 .st:before{top:21px!important}
+html:root:root #how.hw2 .hwi{width:42px!important;height:42px!important;border-width:1.5px!important;margin-bottom:7px!important}
+html:root:root #how.hw2 .hwi svg{width:19px!important;height:19px!important}
+html:root:root #how.hw2 .stp b{font-size:16px!important}
+html:root:root #how.hw2 .stp h3{font-size:15.5px!important;margin:1px 0 3px!important}
+html:root:root #how.hw2 .stp p{font-size:12.5px!important;line-height:1.4!important;max-width:200px!important}
+@media(max-width:1100px){html:root:root #how.hw2>.w{grid-template-columns:1fr!important;padding:22px 32px!important}}
+@media(max-width:900px){
+html:root:root #how.hw2>.w{padding:20px 16px!important;gap:8px!important}
+html:root:root #how.hw2 h2{font-size:26px!important;margin:3px 0 6px!important}
+html:root:root #how.hw2 .hd p{font-size:13px!important;max-width:none!important}
+html:root:root #how.hw2 .st{gap:14px 12px!important;margin-top:6px!important}
+html:root:root #how.hw2 .hwi{width:36px!important;height:36px!important;margin-bottom:5px!important}
+html:root:root #how.hw2 .hwi svg{width:17px!important;height:17px!important}
+html:root:root #how.hw2 .stp b{font-size:14px!important}
+html:root:root #how.hw2 .stp h3{font-size:14.5px!important}
+html:root:root #how.hw2 .stp p{font-size:12px!important;max-width:none!important}
+}

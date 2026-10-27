@@ -19,7 +19,7 @@ var bn=document.createElement("div");bn.className="pr2b";S.insertBefore(bn,S.fir
 function c(k){var o=CT[k];if(!o)return"";return L()==="bn"&&o.value_bn?o.value_bn:(o.value||"")}
 function banner(){var l=L(),t=T[l],bg=(CT.properties_image&&CT.properties_image.value)||(CT.hero_image&&CT.hero_image.value);
 if(bg)bn.style.backgroundImage="url('"+encodeURI(bg)+"')";else bn.style.backgroundImage="";
-bn.innerHTML='<div class="pr2in"><div class="pr2t"><div class="pr2e">'+esc(c("properties_eyebrow")||t.eb)+'</div><h2>'+esc(c("properties_heading")||t.h)+'</h2><p>'+esc(c("properties_subtitle")||t.s)+'</p></div>'
+bn.innerHTML='<div class="pr2in"><div class="pr2t"><div class="pr2e">'+esc(c("properties_eyebrow")||t.eb)+'</div><h2>'+esc(c("properties_heading")||t.h)+'</h2>'+(function(k,d){var o=CT[k],v=o&&o.set?c(k):(c(k)||d);return v?'<p>'+esc(v)+'</p>':''})("properties_subtitle",t.s)+'</div>'
 +'<div class="pr2f"><div>'+ic("home")+'<b>'+t.a[0]+'</b><span>'+t.a[1]+'</span></div><div>'+ic("key")+'<b>'+t.b[0]+'</b><span>'+t.b[1]+'</span></div><div>'+ic("bld")+'<b>'+t.c[0]+'</b><span>'+t.c[1]+'</span></div></div></div>'}
 function build(){var w=S.querySelector(".w");if(!w||w.querySelector(".pr2p"))return;
 var P=document.createElement("div");P.className="pr2p";var bt=w.querySelector(".bt"),bar=w.querySelector(".bar"),cnt=w.querySelector("#cnt");

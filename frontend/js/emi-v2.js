@@ -48,7 +48,7 @@ function fire(id){var e=document.getElementById(id);if(e)e.dispatchEvent(new Eve
 function reset(){var v={ep:"1,50,00,000",ed:"30,00,000",er:"10",ey:"20"};for(var k in v){var e=document.getElementById(k);if(e){e.value=v[k];fire(k)}}}
 function banner(){var l=L(),t=T[l],bg=(CT.emi_image&&CT.emi_image.value)||"";
 if(bg)S.style.setProperty("--em2bg","url('"+encodeURI(bg)+"')");else S.style.removeProperty("--em2bg");
-bn.innerHTML='<div class="em2in"><div class="em2e">'+esc(c("emi_eyebrow")||t.eb)+'</div><h2>'+esc(c("emi_heading")||t.h)+'</h2><p>'+esc(c("emi_subtitle")||t.s)+'</p></div>'}
+bn.innerHTML='<div class="em2in"><div class="em2e">'+esc(c("emi_eyebrow")||t.eb)+'</div><h2>'+esc(c("emi_heading")||t.h)+'</h2>'+(function(k,d){var o=CT[k],v=o&&o.set?c(k):(c(k)||d);return v?'<p>'+esc(v)+'</p>':''})("emi_subtitle",t.s)+'</div>'}
 ["ep","ed","er","ey"].forEach(function(id){var e=document.getElementById(id);if(e)e.addEventListener("input",function(){setTimeout(sync,0)})});
 var o1=document.getElementById("o1");if(o1)new MutationObserver(sync).observe(o1,{childList:true,characterData:true,subtree:true});
 new MutationObserver(function(){banner();labels();sync()}).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});

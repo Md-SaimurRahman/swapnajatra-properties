@@ -325,7 +325,7 @@ RENDER.content = async () => {
     } catch (x) { fail(x); } finally { btn.disabled = false; }
   } },
   h('div', { class: 'note' }, 'Leave a Bangla field empty to show the English text in Bangla mode. Changes apply to the public website immediately after saving.'),
-  section('Board of Directors', img('board_image', 'Banner background image (if empty, the Hero image is used)')),
+  section('Board of Directors', txt('board_subtitle', 'Subtitle (leave empty to hide)', { type: 'textarea', rows: 3 }), img('board_image', 'Banner background image (if empty, the Hero image is used)')),
   section('Hero', txt('hero_heading', 'Heading'), txt('hero_subtitle', 'Subtitle', { type: 'textarea', rows: 3 }), txt('hero_button', 'Button text'), img('hero_image', 'Hero background image (optional)')),
   section('About (section appears only when you add content)', txt('about_heading', 'Heading'), txt('about_description', 'Description', { type: 'textarea', rows: 5 }), img('about_image', 'About image')),
   section('Owner / Chairman (shown on the home page, left side)', txt('owner_name', 'Name'), txt('owner_title', 'Designation'), txt('owner_message', 'Short message (optional)', { type: 'textarea', rows: 3 }), img('owner_image', 'Photo (square or portrait, face in the middle)')),

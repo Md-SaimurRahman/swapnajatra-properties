@@ -12,7 +12,7 @@ var bg=(CT.board_image&&CT.board_image.value)||(CT.hero_image&&CT.hero_image.val
 var cards=TM.map(function(m){var nm=(l==="bn"&&m.name_bn)||m.name||"",rl=(l==="bn"&&m.role_bn)||m.role||"";
 var ph=m.photo?'<img src="'+esc(encodeURI(m.photo))+'" alt="'+esc(nm)+'" loading="lazy">':SIL;
 return '<div class="bd2c"><div class="bd2p">'+ph+'</div><h4>'+esc(nm)+'</h4><i></i><p>'+esc(rl)+'</p></div>'}).join("");
-S.innerHTML='<div class="bd2b"'+(bg?' style="background-image:url(\''+esc(encodeURI(bg))+'\')"':"")+'><div class="bd2t"><div class="bd2e">'+t.eb+'</div><h2>'+t.h+'</h2><p>'+t.s+'</p></div></div><div class="bd2g">'+cards+'</div>'}
+S.innerHTML='<div class="bd2b"'+(bg?' style="background-image:url(\''+esc(encodeURI(bg))+'\')"':"")+'><div class="bd2t"><div class="bd2e">'+t.eb+'</div><h2>'+t.h+'</h2>'+(function(o){var v=o&&o.set?(L()==="bn"&&o.value_bn?o.value_bn:(o.value||"")):((L()==="bn"&&o&&o.value_bn?o.value_bn:(o&&o.value))||t.s);return v?'<p>'+esc(v)+'</p>':''})(CT.board_subtitle)+'</div></div><div class="bd2g">'+cards+'</div>'}
 new MutationObserver(render).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
 fetch(((window.SWP_API_BASE||"")+"/api/bootstrap")).then(function(r){return r.json()}).then(function(d){TM=(d.team||[]).filter(function(m){return !m.status||m.status==="active"});CT=d.content||{};render()}).catch(function(){});
 })();

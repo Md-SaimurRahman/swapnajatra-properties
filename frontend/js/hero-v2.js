@@ -28,7 +28,7 @@ var OLD_H=[];
 var CT={},LOADED=false;
 function L(){/* lang v1 */var l=typeof lang!=="undefined"?lang:document.documentElement.lang;return l==="bn"?"bn":"en"}
 function c(k){var o=CT[k];if(!o)return"";return L()==="bn"&&o.value_bn?o.value_bn:(o.value||"")}
-function heading(txt){var w=esc(txt).split(" ");if(w.length<4){if(w.length<2)return esc(txt);return w.slice(0,-1).join(" ")+" <em>"+w[w.length-1]+"</em>"}var n=w.length;
+function heading(txt){var w=esc(txt).split(" ");if(w.length<4){if(w.length<2)return esc(txt);if(w.length==3)return w[0]+"<br>"+w[1]+" <em>"+w[2]+"</em>"/*swp-hero-break*/;return w.slice(0,-1).join(" ")+" <em>"+w[w.length-1]+"</em>"}var n=w.length;
 var a=w.slice(0,n-2).join(" "),g=w.slice(n-2).join(" ");
 if(txt===T.en.h)a=a.replace("Property Journey,","Property<br>Journey,");
 return a+(txt===T.en.h?"<br>":" ")+"<em>"+g+"</em>"}

@@ -440,6 +440,17 @@
   if (!onAdmin) {
     var hadCache = !!readCache();
     var fp = startFresh(); fp.catch(function () { /* the page shows its built-in text if this fails */ });
+    /* swp-fresh-sync: if the saved copy was older than the real data, reload once so visitors see the latest content */
+    var oldRaw = null; try { oldRaw = localStorage.getItem(CACHE_KEY); } catch (_) { /* ignore */ }
+    fp.then(function (d) {
+      if (!oldRaw) return;
+      try {
+        if (JSON.stringify(d) !== oldRaw) {
+          var t = +sessionStorage.getItem('swp-sync-at') || 0;
+          if (Date.now() - t > 20000) { sessionStorage.setItem('swp-sync-at', String(Date.now())); location.reload(); }
+        }
+      } catch (_) { /* ignore */ }
+    }).catch(function () { /* ignore */ });
     if (!hadCache) {            // very first visit: keep the page invisible for a moment instead of flashing default text
       var root = document.documentElement, st = document.createElement('style');
       st.textContent = 'html.swp-wait body{opacity:0!important}html.swp-fade body{transition:opacity .35s ease}';

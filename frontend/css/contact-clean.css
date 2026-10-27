@@ -1,0 +1,2 @@
+/* contact-clean v1: hide the small "GET IN TOUCH" and "SEND A MESSAGE" lines */
+html:root:root #contact .ct2e{display:none!important}

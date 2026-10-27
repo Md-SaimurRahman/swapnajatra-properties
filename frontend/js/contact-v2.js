@@ -31,7 +31,7 @@ if(bg)S.style.setProperty("--ct2bg","url('"+encodeURI(bg)+"')");else S.style.rem
 var addr=lines(CO.address).map(esc).join("<br>"),ph=[1,2,3].map(function(i){return CO["phone"+i]}).filter(Boolean).map(function(v){return '<a href="'+tel(v)+'">'+esc(v)+'</a>'}).join("");
 var hrs=lines(CO.hours).length?lines(CO.hours):lines(t.hd);
 var sub=(CT.contact_subtitle&&CT.contact_subtitle.set?c("contact_subtitle"):(c("contact_subtitle")||t.s))/*swp-contact-sub*/,loc=c("contact_location")||t.ld,sup=c("contact_support")||t.qd;
-left.innerHTML='<div class="ct2e">'+t.eb+'<i></i></div><h2>'+t.h+'</h2>'+(sub?'<p class="ct2s">'+esc(sub)+'</p>':'')+''
+left.innerHTML='<div class="ct2e">'+t.eb+'<i></i></div><h2>'+(function(h){var m=String(h).match(/^(.*\s)(\S+)$/);return m?m[1]+'<em>'+m[2]+'</em>':h})(t.h)/*swp-title*/+'</h2>'+(sub?'<p class="ct2s">'+esc(sub)+'</p>':'')+''
 +row("pin",addr)+(ph?row("phone",ph):"")+(CO.email?row("mail",'<a href="mailto:'+esc(CO.email)+'">'+esc(CO.email)+'</a>'):"")+'<div class="ct2mh"></div>';
 info.innerHTML=row("clock",'<b>'+t.hh+'</b><span>'+hrs.map(esc).join("<br>")+'</span>')+row("bld",'<b>'+t.lh+'</b><span>'+esc(loc)+'</span>')+row("head",'<b>'+t.qh+'</b><span>'+esc(sup)+'</span>');
 var mh=left.querySelector(".ct2mh");mh.appendChild(mapBox);mh.appendChild(info);

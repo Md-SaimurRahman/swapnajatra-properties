@@ -1,0 +1,17 @@
+/* title-unify v1: every big section title uses the Home Loan Calculator title size */
+html:root:root .h2in h1,
+html:root:root .sv2w h2,
+html:root:root .bd2t h2,
+html:root:root .pr2t h2,
+html:root:root .ct2l h2,
+html:root:root .lc h2{font-size:46px!important;line-height:1.08!important;font-weight:400!important;letter-spacing:-.02em!important}
+@media(max-width:1000px){
+html:root:root .h2in h1,html:root:root .sv2w h2,html:root:root .bd2t h2,html:root:root .pr2t h2,html:root:root .ct2l h2,html:root:root .lc h2{font-size:34px!important}
+}
+@media(max-width:560px){
+html:root:root .h2in h1,html:root:root .sv2w h2,html:root:root .bd2t h2,html:root:root .pr2t h2,html:root:root .ct2l h2,html:root:root .lc h2{font-size:31px!important;line-height:1.05!important;font-weight:700!important}
+}
+/* Contact Us: last word in gold like the other titles */
+html:root:root .ct2l h2 em{font-style:normal;color:#b8872b!important}
+html[data-theme="dark"]:root:root .ct2l h2 em{color:#e8b84a!important}
+@media(prefers-color-scheme:dark){html:root:root:not([data-theme="light"]) .ct2l h2 em{color:#e8b84a!important}}

@@ -1,0 +1,4 @@
+/* bar-slide v1: the navy info box at the bottom of the hero slides in from the right once, when the page opens */
+@keyframes swpBarIn{from{opacity:0;transform:translateX(140px)}to{opacity:1;transform:none}}
+html:root:root:not([data-bar-done]) .h2bar{animation:swpBarIn .9s cubic-bezier(.22,.8,.3,1) .35s both}
+@media(prefers-reduced-motion:reduce){html:root:root .h2bar{animation:none!important}}

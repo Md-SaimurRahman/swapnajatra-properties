@@ -23,11 +23,11 @@ function gold(txt,n){var w=esc(txt).split(" ");if(w.length<=n)return esc(txt);re
 function render(){var l=L(),t=T[l];S.hidden=!SV.length;if(!SV.length)return;
 var bg=CT.services_image&&CT.services_image.value;
 var hh=(CT.services_heading&&(l==="bn"&&CT.services_heading.value_bn?CT.services_heading.value_bn:CT.services_heading.value))||"";
-var useCms=hh&&OLD.indexOf(hh)<0;var head=useCms?gold(hh,Math.min(3,hh.split(" ").length-1)):gold(t.h,t.g);
+var useCms=hh&&OLD.indexOf(hh)<0;var head=useCms?gold(hh,Math.min(3,hh.split(" ").length-1)):((CT.services_heading&&CT.services_heading.set&&!hh)?"":gold(t.h,t.g))/*swp-svc-head*/;
 var cards=SV.map(function(s){var ti=(l==="bn"&&s.title_bn)||s.title||"",de=(l==="bn"&&s.description_bn)||s.description||"",cl=(l==="bn"&&s.cta_label_bn)||s.cta_label||"";
 var ph=s.image?'<img src="'+esc(encodeURI(s.image))+'" alt="" loading="lazy">':'<svg viewBox="0 0 300 150" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><rect width="300" height="150" fill="#cfe0f3"/><rect x="80" y="30" width="70" height="120" fill="#8aa6c6"/><rect x="160" y="55" width="60" height="95" fill="#a9bfd9"/><rect y="125" width="300" height="25" fill="#7d9a6a"/></svg>';
 return '<article class="sv2c"><div class="sv2p">'+ph+'<span class="sv2i">'+ic(kind(s),30)+'</span></div><div class="sv2b"><h3>'+esc(ti)+'</h3><p>'+esc(de)+'</p>'+(cl?'<a class="sv2a" href="'+esc(s.cta_href||"#contact")+'"><span>'+esc(cl.replace(/\s*[→>]+\s*$/,""))+' &rarr;</span><i>'+ic("arrow",18)+'</i></a>':"")+'</div></article>'}).join("");
-S.innerHTML='<div class="sv2bg"'+(bg?' style="background-image:url(\''+esc(encodeURI(bg))+'\')"':"")+'></div><div class="sv2w"><div class="sv2e">'+t.eb+'</div><h2>'+head+'</h2><div class="sv2g">'+cards+'</div></div><div id="svGrid" hidden></div>';
+S.innerHTML='<div class="sv2bg"'+(bg?' style="background-image:url(\''+esc(encodeURI(bg))+'\')"':"")+'></div><div class="sv2w"><div class="sv2e">'+t.eb+'</div>'+(head?'<h2>'+head+'</h2>':'')+'<div class="sv2g">'+cards+'</div></div><div id="svGrid" hidden></div>';
 how(l,t)}
 function how(l,t){var H=document.getElementById("how");if(!H)return;H.classList.add("hw2");
 var hd=H.querySelector(".hd");if(!hd){var w=H.querySelector(".w");hd=document.createElement("div");hd.className="hd";w&&w.insertBefore(hd,w.firstChild)}

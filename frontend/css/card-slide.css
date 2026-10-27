@@ -1,0 +1,4 @@
+/* card-slide v1: property cards slide in from the left when they scroll into view (once per card) */
+html:root:root #gd .card.swp-pre{animation:none!important;opacity:0!important;transform:translateX(-90px)!important}
+html:root:root #gd .card.swp-go{transition:opacity .7s ease,transform .85s cubic-bezier(.22,.8,.3,1)!important;transition-delay:var(--swp-d,0ms)!important}
+html:root:root #gd .card.swp-done{animation:none!important}

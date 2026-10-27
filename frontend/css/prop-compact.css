@@ -1,0 +1,6 @@
+/* prop-compact v1: Properties banner height follows the title (no empty space); filter box still overlaps the banner */
+html:root:root .pr2b{min-height:0!important}
+html:root:root .pr2in{padding-top:44px!important;padding-bottom:88px!important}
+@media(max-width:900px){
+html:root:root .pr2in{padding-top:30px!important;padding-bottom:78px!important}
+}

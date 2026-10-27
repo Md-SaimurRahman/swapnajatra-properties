@@ -1,0 +1,7 @@
+/* board-compact v1: banner height follows the title (no empty space), cards still overlap the banner */
+html:root:root .bd2b{height:auto!important;min-height:0!important;padding-bottom:124px}
+html:root:root .bd2t{padding-top:44px!important}
+@media(max-width:900px){
+html:root:root .bd2b{padding-bottom:104px}
+html:root:root .bd2t{padding-top:30px!important}
+}

@@ -1,0 +1,41 @@
+/* fonts v3: Raleway (titles, buttons, labels) + Source Sans 3 (text). Sizes of titles and buttons are kept as before. */
+html:root:root body,html:root:root input,html:root:root select,html:root:root textarea{font-family:"Source Sans 3","Hind Siliguri",sans-serif!important}
+html:root:root .logo,html:root:root .logo *{font-family:Inter,"Hind Siliguri",sans-serif!important}
+html:root:root .logo .clk,html:root:root .logo .clk *{font-family:inherit!important}
+
+/* big section titles: all words capital, same sizes as before */
+html:root:root .h2in h1,html:root:root .sv2w h2,html:root:root .bd2t h2,html:root:root .pr2t h2,html:root:root .ct2l h2,html:root:root .lc h2,html:root:root .em2in h2,html:root:root #how.hw2 h2{font-family:Raleway,"Hind Siliguri",sans-serif!important;font-weight:700!important;text-transform:uppercase!important;letter-spacing:.04em!important;font-feature-settings:"lnum"}
+html:root:root .h2in h1{line-height:1.12!important}
+
+/* smaller titles and labels: Raleway, normal case */
+html:root:root .sv2b h3,html:root:root .cb h3,html:root:root .stp h3,html:root:root .stp b,html:root:root .ct2fh h3,html:root:root .em2lh h3,html:root:root .em2sh h3,html:root:root .h2ch h3,html:root:root .sx h3,html:root:root .co-h,html:root:root .own .on,html:root:root .stats,html:root:root .em2dc small,html:root:root .cb .pr,html:root:root #properties.pr2 .card .cb h3,html:root:root #properties.pr2 .card .cb .pr,html:root:root #how.hw2 .stp h3,html:root:root #how.hw2 .stp b,html:root:root .ft h3,html:root:root .ft h4,html:root:root h4{font-family:Raleway,"Hind Siliguri",sans-serif!important;font-weight:700!important;letter-spacing:.01em;font-feature-settings:"lnum"}
+html:root:root .h2eb,html:root:root .sv2e,html:root:root .bd2e,html:root:root .pr2e,html:root:root .em2e,html:root:root .h2ti,html:root:root .eb,html:root:root .eyebrow{font-family:Raleway,"Hind Siliguri",sans-serif!important;font-weight:600!important}
+
+/* nav links */
+html:root:root nav .links a:not(.btn){font-family:Raleway,"Hind Siliguri",sans-serif!important;font-weight:600!important;font-size:13.5px!important}
+
+/* buttons: capital letters, same button size as before (text made a little smaller) */
+html:root:root .btn:not(.tm):not(.lt),html:root:root .h2b a,html:root:root .sv2a,html:root:root .em2cb,html:root:root .em2rb{font-family:Raleway,"Hind Siliguri",sans-serif!important;font-weight:700!important;text-transform:uppercase!important;letter-spacing:.08em!important;font-size:12px!important}
+
+/* Bangla: no letter gaps, no capitals */
+html[data-bnui]:root:root .h2in h1,html[data-bnui]:root:root .sv2w h2,html[data-bnui]:root:root .bd2t h2,html[data-bnui]:root:root .pr2t h2,html[data-bnui]:root:root .ct2l h2,html[data-bnui]:root:root .lc h2,html[data-bnui]:root:root .em2in h2,html[data-bnui]:root:root #how.hw2 h2,html[data-bnui]:root:root .btn:not(.tm):not(.lt),html[data-bnui]:root:root .h2b a,html[data-bnui]:root:root .sv2a,html[data-bnui]:root:root .em2cb,html[data-bnui]:root:root .em2rb{letter-spacing:0!important;text-transform:none!important}
+html[data-bnui]:root:root .btn:not(.tm):not(.lt),html[data-bnui]:root:root .h2b a,html[data-bnui]:root:root .sv2a,html[data-bnui]:root:root .em2cb,html[data-bnui]:root:root .em2rb{font-size:14px!important}
+
+/* hero paragraph: light */
+html:root:root .h2p{font-weight:300!important;font-size:19px!important;line-height:1.55!important}
+html:root:root .em2cb,html:root:root .em2rb{font-size:11.5px!important;letter-spacing:.07em!important}
+
+/* keep every button the same box size as before */
+html:root:root .btn:not(.tm):not(.lt){line-height:22.4px!important;font-size:12.5px!important;letter-spacing:.06em!important}
+html:root:root nav .links .btn{line-height:28.8px!important;font-size:13px!important}
+html:root:root .btn.o:not(.tm):not(.lt),html:root:root .btn.g:not(.tm):not(.lt){font-size:11.5px!important;letter-spacing:.05em!important}
+html:root:root #sb,html:root:root #rs{text-transform:none!important;letter-spacing:.01em!important;font-size:12px!important;line-height:15.6px!important}
+html:root:root .sv2a{line-height:23.2px!important;font-size:11px!important;letter-spacing:.05em!important}
+html:root:root .sv2a span{white-space:nowrap}
+html:root:root .em2cb,html:root:root .em2rb{line-height:21.6px!important;font-size:11px!important;letter-spacing:.05em!important}
+html:root:root .lc h2{font-size:38px!important}
+html:root:root #how.hw2 h2{font-size:30px!important;letter-spacing:.02em!important}
+@media(max-width:1000px){html:root:root .lc h2{font-size:30px!important}html:root:root #how.hw2 h2{font-size:28px!important}}
+html:root:root footer.ft .ft-brand{font-size:21px!important}
+@media(max-width:600px){html:root:root footer.ft .ft-brand{font-size:17px!important;white-space:normal}}
+html[data-bnui]:root:root .h2eb,html[data-bnui]:root:root .sv2e,html[data-bnui]:root:root .bd2e,html[data-bnui]:root:root .pr2e,html[data-bnui]:root:root .em2e,html[data-bnui]:root:root .h2ti,html[data-bnui]:root:root .eb,html[data-bnui]:root:root .eyebrow{letter-spacing:.04em!important}

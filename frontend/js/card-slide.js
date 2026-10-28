@@ -9,7 +9,7 @@
       var A=a.target.getBoundingClientRect(),B=b.target.getBoundingClientRect();return (A.top-B.top)||(A.left-B.left)});
     vis.forEach(function(e,i){
       var el=e.target; io.unobserve(el);
-      el.style.setProperty('--swp-d',Math.min(i,5)*90+'ms');
+      el.style.setProperty('--swp-d',Math.min(i,8)*200+'ms');
       el.classList.add('swp-go'); void el.offsetWidth;
       el.classList.remove('swp-pre'); el.classList.add('swp-done');
       if(el.dataset.id) seen[el.dataset.id]=1;

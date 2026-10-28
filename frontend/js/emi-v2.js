@@ -45,7 +45,7 @@ lh.innerHTML='<span class="em2hi">'+ic("home")+'</span><div><h3>'+t.dh+'</h3><p>
 btns.innerHTML='<button type="button" class="em2cb">'+ic("calc")+'<span>'+t.calc+'</span><b>→</b></button><button type="button" class="em2rb">'+ic("rot")+'<span>'+t.reset+'</span></button>';
 btns.querySelector(".em2cb").onclick=function(){fire("ep")};btns.querySelector(".em2rb").onclick=reset}
 function fire(id){var e=document.getElementById(id);if(e)e.dispatchEvent(new Event("input",{bubbles:true}))}
-function reset(){var v={ep:"1,50,00,000",ed:"30,00,000",er:"10",ey:"20"};for(var k in v){var e=document.getElementById(k);if(e){e.value=v[k];fire(k)}}}
+function reset(){var v={ep:"",ed:"",er:"",ey:""};for(var k in v){var e=document.getElementById(k);if(e){e.value=v[k];fire(k)}}}
 function banner(){var l=L(),t=T[l],bg=(CT.emi_image&&CT.emi_image.value)||"";
 if(bg)S.style.setProperty("--em2bg","url('"+encodeURI(bg)+"')");else S.style.removeProperty("--em2bg");
 bn.innerHTML='<div class="em2in"><div class="em2e">'+esc(c("emi_eyebrow")||t.eb)+'</div><h2>'+esc(c("emi_heading")||t.h)+'</h2>'+(function(k,d){var o=CT[k],v=o&&o.set?c(k):(c(k)||d);return v?'<p>'+esc(v)+'</p>':''})("emi_subtitle",t.s)+'</div>'}

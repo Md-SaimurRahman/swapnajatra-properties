@@ -109,7 +109,7 @@ function esc(v){return String(v??"").replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&l
 const clone=o=>JSON.parse(JSON.stringify(o));
 /* Fallback values used only until/unless the API answers. The database is the source of truth. */
 const DEFAULTS={company:{name:"SWAPNAJATRA PROPERTIES LTD.",tagline:"HONESTY • EFFICIENCY • TRUST",address:"Kohinoor Tower-03, Road #7\nHouse #7-SW(E), 3rd Floor\nGulshan-1, Dhaka",email:"",phone1:"01310 094 907",phone2:"01726 191 921",phone3:"01870 763 179",hours:""},
-social:{whatsapp:"8801310094907",facebook:"",linkedin:"",youtube:"",maps:""},
+social:{whatsapp:"8801310094907",facebook:"",linkedin:"",youtube:"",instagram:"",maps:""},
 brand:{title:"Swapnajatra Properties Ltd.",logo:"",favicon:"",defaultImage:""},
 prefs:{lang:"en",theme:"light",showWa:true,showMenu:true},
 prop:{listing:"buy",type:"",perPage:12,featured:true,sold:true,rented:true},
@@ -169,7 +169,7 @@ const lg=$(".logo svg");if(lg){let im=$("#logoImg");if(b.logo){if(!im){im=docume
 applyContact();
 const fh=$(".ft h3");if(fh&&(c.name!==DEFAULTS.company.name||fh.dataset.ch)){fh.dataset.ch=1;fh.textContent=c.name}
 let sc=$("#soc");if(!sc&&$(".ft")){sc=document.createElement("div");sc.id="soc";sc.className="soc";$(".ft .cp").before(sc)}
-if(sc)sc.innerHTML=[["facebook","Facebook"],["linkedin","LinkedIn"],["youtube","YouTube"],["maps","Google Maps"]].filter(x=>/^https?:\/\//.test(so[x[0]]||"")).map(x=>`<a href="${esc(so[x[0]])}" target="_blank" rel="noopener">${x[1]}</a>`).join("");
+if(sc)sc.innerHTML=[["facebook","Facebook"],["linkedin","LinkedIn"],["youtube","YouTube"],["instagram","Instagram"],["maps","Google Maps"]].filter(x=>/^https?:\/\//.test(so[x[0]]||"")).map(x=>`<a href="${esc(so[x[0]])}" target="_blank" rel="noopener">${x[1]}</a>`).join("");
 let wf=$("#waf");if(!wf){wf=document.createElement("a");wf.id="waf";wf.className="waf";wf.target="_blank";wf.rel="noopener";wf.textContent="WhatsApp";document.body.append(wf)}
 wf.href="https://wa.me/"+WAN();wf.hidden=!(pf.showWa&&WAN());
 $(".dmenu").hidden=!pf.showMenu;

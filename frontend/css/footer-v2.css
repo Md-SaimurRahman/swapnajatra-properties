@@ -1,0 +1,21 @@
+/* footer v2: 4 columns, social icons, shorter */
+html:root:root footer.ft{position:relative;overflow:hidden;padding:34px 0 12px!important;background:linear-gradient(180deg,#10304f,#0a2038)!important}
+html:root:root footer.ft:before{content:"";position:absolute;left:0;right:0;bottom:0;height:78%;pointer-events:none;opacity:.32;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 200' preserveAspectRatio='xMidYMax slice'%3E%3Cg fill='%23ffffff' fill-opacity='.07'%3E%3Crect x='20' y='110' width='46' height='90'/%3E%3Crect x='80' y='70' width='38' height='130'/%3E%3Crect x='140' y='120' width='60' height='80'/%3E%3Crect x='230' y='40' width='44' height='160'/%3E%3Crect x='290' y='95' width='52' height='105'/%3E%3Crect x='360' y='60' width='36' height='140'/%3E%3Crect x='420' y='125' width='64' height='75'/%3E%3Crect x='510' y='30' width='48' height='170'/%3E%3Crect x='575' y='85' width='40' height='115'/%3E%3Crect x='640' y='115' width='58' height='85'/%3E%3Crect x='720' y='50' width='42' height='150'/%3E%3Crect x='780' y='100' width='54' height='100'/%3E%3Crect x='850' y='20' width='46' height='180'/%3E%3Crect x='915' y='90' width='40' height='110'/%3E%3Crect x='975' y='120' width='62' height='80'/%3E%3Crect x='1055' y='60' width='44' height='140'/%3E%3Crect x='1115' y='105' width='70' height='95'/%3E%3C/g%3E%3C/svg%3E") center bottom/100% 100% no-repeat}
+html:root:root footer.ft>.w,html:root:root footer.ft>.cp{position:relative;z-index:1}
+html:root:root footer.ft>.w{display:grid!important;grid-template-columns:1.75fr .8fr 1.3fr 1fr;gap:30px 40px;align-items:start}
+html:root:root footer.ft .ft-brand{font-size:24px!important;white-space:nowrap}
+html:root:root footer.ft h4{font-size:17px;margin:0 0 8px}
+html:root:root footer.ft .w a{padding:2px 0;font-size:14.5px;line-height:1.5}
+html:root:root footer.ft #ftDesc{margin-left:46px;font-size:15px}
+html:root:root footer.ft #soc{display:none!important}
+html:root:root footer.ft .ftsoc{display:flex;gap:12px;margin:16px 0 0 0;flex-wrap:wrap}
+html:root:root footer.ft .ftsoc[hidden]{display:none}
+html:root:root footer.ft .w .ftsoc a{display:grid;place-items:center;width:38px;height:38px;padding:0;border-radius:50%;border:1.5px solid rgba(255,255,255,.7);color:#fff;opacity:1;transition:background .2s,color .2s,border-color .2s,transform .2s}
+html:root:root footer.ft .w .ftsoc a:hover{background:#e2b84c;border-color:#e2b84c;color:#0a2038;transform:translateY(-2px)}
+html:root:root footer.ft .ftsoc svg{width:18px;height:18px;display:block}
+html:root:root footer.ft>.cp{max-width:1160px;margin:18px auto 0!important;padding:11px 0 0;border-top:1px solid rgba(255,255,255,.14);width:calc(100% - 40px);text-align:left!important;font-size:13px}
+@media(max-width:900px){
+html:root:root footer.ft{padding:28px 0 12px!important}
+html:root:root footer.ft>.w{grid-template-columns:1fr 1fr;gap:22px 18px}
+html:root:root footer.ft>.w>div:first-child,html:root:root footer.ft>.w>#ftVisit{grid-column:1/-1}
+}

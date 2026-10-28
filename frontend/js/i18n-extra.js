@@ -1,6 +1,6 @@
 /* Extra Bangla translations (fills gaps in the built-in dictionary). Works only while the site is in Bangla. */
 (function(){
-var D={
+var D={"Our Services":"আমাদের সেবা","Home":"হোম",
 "HONESTY":"সততা","Clear communication and responsible guidance":"স্পষ্ট যোগাযোগ ও দায়িত্বশীল পরামর্শ",
 "EFFICIENCY":"দক্ষতা","A practical process from enquiry to completion":"অনুসন্ধান থেকে সম্পন্ন হওয়া পর্যন্ত বাস্তবসম্মত প্রক্রিয়া",
 "TRUST":"বিশ্বাস","A long-term approach to property relationships":"সম্পত্তি-সম্পর্কে দীর্ঘমেয়াদি দৃষ্টিভঙ্গি",

@@ -1,7 +1,7 @@
 /* Turns the hero's navy info box into a gently moving ticker (left -> right, endless loop). */
 (function(){
   try{ if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches) return; }catch(_){}
-  var SPEED=55; // pixels per second
+  var SPEED=50; // pixels per second
   function layout(bar){
     var sets=bar.querySelectorAll('.h2set'); if(!sets.length) return;
     var first=sets[0], iw=innerWidth<=900?300:420;

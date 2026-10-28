@@ -1,9 +1,19 @@
-/* bar-marquee v1: the navy info box keeps moving: items come out from the left and go into the right, in a loop. Hover = pause. */
-@keyframes swpMq{from{transform:translateX(calc(-1 * var(--mq-w,1600px)))}to{transform:translateX(0)}}
+/* bar-marquee v2: smooth ticker. Items come out from the left and go into the right, in a loop. Hover = pause.
+   All four items start on the same line (label, number, note), soft fade at both ends. */
+@keyframes swpMq{from{transform:translate3d(calc(-1 * var(--mq-w,1600px)),0,0)}to{transform:translate3d(0,0,0)}}
 html:root:root .h2bar.mq{display:block!important;overflow:hidden;grid-template-columns:none!important}
-.h2bar.mq .h2track{display:flex;width:max-content;animation:swpMq var(--mq-t,30s) linear infinite;will-change:transform}
-.h2bar.mq .h2set{display:flex;flex:none}
-.h2bar.mq .h2set>.h2c{flex:none;width:var(--mq-iw,420px);min-height:110px;border-bottom:0!important;border-right:1px solid rgba(255,255,255,.18)}
+.h2bar.mq .h2track{display:flex;width:max-content;animation:swpMq var(--mq-t,30s) linear infinite;will-change:transform;backface-visibility:hidden;transform:translateZ(0);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%)}
+.h2bar.mq .h2set{display:flex;flex:none;align-items:stretch}
+html:root:root .h2bar.mq .h2set>.h2c{flex:none;width:var(--mq-iw,420px);min-height:0!important;align-items:flex-start!important;padding-top:24px!important;padding-bottom:22px!important;border-bottom:0!important;border-right:1px solid rgba(255,255,255,.16)}
+.h2bar.mq .h2c .h2i{flex:none;margin-top:6px}
+.h2bar.mq .h2c .h2t{min-height:104px;display:flex;flex-direction:column;justify-content:flex-start}
+.h2bar.mq .h2cta .h2go{align-self:center;margin-top:0}
+.h2bar.mq .h2cta .h2t b{margin-top:2px}
 .h2bar.mq:hover .h2track,.h2bar.mq:focus-within .h2track{animation-play-state:paused}
-@media(max-width:900px){.h2bar.mq .h2set>.h2c{min-height:84px!important}}
+@media(max-width:900px){
+html:root:root .h2bar.mq .h2set>.h2c{padding-top:16px!important;padding-bottom:14px!important}
+.h2bar.mq .h2c .h2i{margin-top:2px}
+.h2bar.mq .h2c .h2t{min-height:78px}
+}
 @media(prefers-reduced-motion:reduce){.h2bar.mq .h2track{animation:none}}

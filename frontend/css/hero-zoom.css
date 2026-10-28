@@ -1,0 +1,5 @@
+/* hero photo: slow zoom-out when page opens (photo only; text/cards untouched) */
+html header.hero.hero.v2img[data-v2]::before{content:"";position:absolute;inset:0;z-index:0;background:var(--h2img) center/cover no-repeat;transform-origin:62% 55%;animation:swpKb 3.6s cubic-bezier(.22,.7,.25,1) both;pointer-events:none}
+header.hero.v2img[data-v2] #h2{z-index:1}
+@keyframes swpKb{from{transform:scale(1.14)}to{transform:scale(1)}}
+@media(prefers-reduced-motion:reduce){html header.hero.hero.v2img[data-v2]::before{animation:none}}

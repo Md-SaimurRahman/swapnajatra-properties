@@ -1,0 +1,7 @@
+/* all page titles get exactly the size the hero title shows (the hero is scaled to the screen height, so the others scale the same way) */
+@media(min-width:901px){
+html:root:root .sv2w h2,html:root:root .bd2t h2,html:root:root .pr2t h2,html:root:root .ct2l h2,html:root:root .em2in h2{font-size:calc(46px * var(--h2s,1))!important}
+}
+@media(min-width:901px) and (max-width:1000px){
+html:root:root .sv2w h2,html:root:root .bd2t h2,html:root:root .pr2t h2,html:root:root .ct2l h2,html:root:root .em2in h2{font-size:calc(34px * var(--h2s,1))!important}
+}

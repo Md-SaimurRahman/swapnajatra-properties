@@ -1,0 +1,2 @@
+/* hero-gap v1: the left text block moves down a little so the empty space under the buttons is smaller. Right side and the box stay as they are. PC only. */
+@media(min-width:901px){html:root:root .h2in{top:124px!important}}

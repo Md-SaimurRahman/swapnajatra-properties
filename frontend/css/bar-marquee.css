@@ -1,0 +1,9 @@
+/* bar-marquee v1: the navy info box keeps moving: items come out from the left and go into the right, in a loop. Hover = pause. */
+@keyframes swpMq{from{transform:translateX(calc(-1 * var(--mq-w,1600px)))}to{transform:translateX(0)}}
+html:root:root .h2bar.mq{display:block!important;overflow:hidden;grid-template-columns:none!important}
+.h2bar.mq .h2track{display:flex;width:max-content;animation:swpMq var(--mq-t,30s) linear infinite;will-change:transform}
+.h2bar.mq .h2set{display:flex;flex:none}
+.h2bar.mq .h2set>.h2c{flex:none;width:var(--mq-iw,420px);min-height:110px;border-bottom:0!important;border-right:1px solid rgba(255,255,255,.18)}
+.h2bar.mq:hover .h2track,.h2bar.mq:focus-within .h2track{animation-play-state:paused}
+@media(max-width:900px){.h2bar.mq .h2set>.h2c{min-height:84px!important}}
+@media(prefers-reduced-motion:reduce){.h2bar.mq .h2track{animation:none}}

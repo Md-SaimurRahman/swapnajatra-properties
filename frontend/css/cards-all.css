@@ -1,0 +1,23 @@
+/* phone: every big section as a rounded card, same style as the hero card (phone only, max 560px) */
+@media(max-width:560px){
+/* ---- banner cards: Properties + Board of Directors ---- */
+html:root:root .pr2b,html:root:root .bd2b{margin:14px 14px 0!important;border-radius:28px!important;position:relative;isolation:isolate;background-size:cover!important;background-position:center!important}
+html:root:root .pr2b:after,html:root:root .bd2b:after{content:"";position:absolute;inset:0;border-radius:28px;background:linear-gradient(180deg,rgba(6,20,45,.5) 0%,rgba(6,20,45,.74) 100%)!important;z-index:0;pointer-events:none}
+html:root:root .em2b:after{display:none!important}
+html:root:root .pr2b>*,html:root:root .bd2b>*{position:relative;z-index:1}
+html:root:root .pr2e,html:root:root .bd2e,html:root:root .em2e,html:root:root .sv2e{color:#f0cf8a!important}
+html:root:root .pr2t h2,html:root:root .bd2t h2{background:none!important;-webkit-text-fill-color:#fff!important;color:#fff!important}
+html:root:root .pr2t h2 em,html:root:root .bd2t h2 em{-webkit-text-fill-color:#f2c96b!important;color:#f2c96b!important}
+html:root:root .pr2t p,html:root:root .bd2t p{color:rgba(255,255,255,.93)!important}
+/* ---- Home Loan + Services + Contact: inset rounded card with dark top for the title ---- */
+html:root:root #emi.em2,html:root:root #services.sv2,html:root:root #contact.ct2{margin:14px 14px 0!important;border-radius:28px!important;overflow:hidden;position:relative;isolation:isolate}
+html:root:root #emi.em2:before,html:root:root #services.sv2:before{content:"";position:absolute;left:0;right:0;top:0;height:300px;background:linear-gradient(180deg,rgba(6,20,45,.78) 0%,rgba(6,20,45,.55) 55%,rgba(6,20,45,0) 100%);z-index:0;pointer-events:none}
+html:root:root #emi.em2>*,html:root:root #services.sv2>*:not(.sv2bg){position:relative;z-index:1}
+html:root:root .em2in h2,html:root:root .sv2w h2{background:none!important;-webkit-text-fill-color:#fff!important;color:#fff!important}
+html:root:root .em2in h2 em,html:root:root .sv2w h2 em{-webkit-text-fill-color:#f2c96b!important;color:#f2c96b!important}
+html:root:root .em2in p{color:rgba(255,255,255,.93)!important}
+/* ---- dark sections as rounded cards ---- */
+html:root:root #how.hw2,html:root:root #landcta.lc{margin:14px 14px 0!important;border-radius:28px!important;overflow:hidden}
+html:root:root .pr2t h2:after,html:root:root .bd2t h2:after,html:root:root .em2in h2:after,html:root:root .sv2w h2:after{background:linear-gradient(90deg,#f2c96b,#e8c276)!important}
+html:root:root #landcta .btn,html:root:root .ct2f .btn,html:root:root .ct2f button[type=submit]{border-radius:999px!important}
+}

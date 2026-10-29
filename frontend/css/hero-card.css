@@ -1,0 +1,24 @@
+/* phone hero as a rounded photo card with white text (phone only, max 560px). Laptop is untouched. */
+@media(max-width:560px){
+html:root:root header.hero.hero[data-v2],html:root:root header.hero.hero.v2img[data-v2]{background:var(--bg,#fff)!important}
+html:root:root header.hero.v2img[data-v2]::before{display:none!important}
+html:root:root #h2:before{display:none!important}
+html:root:root #h2{padding:12px 14px 22px!important;gap:0!important}
+html:root:root .h2in{position:relative;overflow:hidden;border-radius:28px;padding:34px 22px 78px!important;background:var(--h2img,linear-gradient(#0000,#0000)) center/cover no-repeat,linear-gradient(160deg,#16406b,#0a2038)}
+html:root:root .h2in:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,20,45,.38) 0%,rgba(6,20,45,.55) 45%,rgba(6,20,45,.82) 100%);pointer-events:none}
+html:root:root .h2in>*{position:relative;z-index:1}
+html:root:root .h2eb{color:#f0cf8a!important}
+html:root:root body.h2on .h2in h1{color:#fff!important;font-size:33px!important;line-height:1.12!important;margin:12px 0 12px!important}
+html:root:root body.h2on .h2in h1 em{color:#f2c96b!important}
+html:root:root body.h2on .h2p{color:rgba(255,255,255,.93)!important;font-size:15px!important;font-weight:400!important;line-height:1.55!important}
+html:root:root .h2ic{background:none!important;border:0!important;box-shadow:none!important;border-top:1px solid rgba(255,255,255,.22)!important;border-radius:0!important;margin:18px 0 18px!important;padding:16px 0 0!important}
+html:root:root .h2ic>div{color:#fff!important}
+html:root:root .h2ic>div+div{border-left:1px solid rgba(255,255,255,.2)!important}
+html:root:root .h2ic .h2i{background:rgba(255,255,255,.12)!important;border-color:#e8c276!important;color:#f2c96b!important}
+html:root:root .h2b{gap:10px!important}
+html:root:root .h2b a{border-radius:999px!important;min-height:52px!important}
+html:root:root .h2b a.h2b2{background:transparent!important;border:1.5px solid rgba(255,255,255,.85)!important;color:#fff!important}
+html:root:root .h2b a.h2b2 svg{color:#fff}
+html:root:root .h2ch{position:relative;z-index:3;margin:-54px 22px 0!important;width:auto!important}
+html:root:root .h2bar{margin-top:16px!important}
+}

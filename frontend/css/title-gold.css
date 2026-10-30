@@ -1,0 +1,6 @@
+/* base: em looks like normal text everywhere (laptop unchanged) */
+html:root:root .pr2t h2 em,html:root:root .em2in h2 em{font-style:normal!important}
+/* phone: gold last word (day + night) */
+@media(max-width:560px){
+html:root:root .pr2t h2 em,html:root:root .em2in h2 em,html[data-theme="dark"]:root:root .pr2t h2 em,html[data-theme="dark"]:root:root .em2in h2 em,html:root:root:not([data-theme="light"]) .pr2t h2 em,html:root:root:not([data-theme="light"]) .em2in h2 em{-webkit-text-fill-color:#f2c96b!important;color:#f2c96b!important}
+}

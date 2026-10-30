@@ -1,0 +1,9 @@
+/* phone only: Explore Properties + Explore Our Services stay one below the other, but half the height, one line of text */
+@media(max-width:560px){
+html:root:root .h2b{display:flex!important;flex-direction:column;align-items:flex-start;gap:8px!important}
+html:root:root .h2b a,html:root:root .h2b a.h2b2{height:38px!important;min-height:0!important;padding:0 14px!important;gap:8px!important;font-size:11px!important;letter-spacing:.05em!important;line-height:1!important;white-space:nowrap!important;width:min(200px,100%)!important;min-width:0!important}
+html:root:root .h2b a svg{width:17px!important;height:17px!important;flex:none}
+html:root:root .h2b a.h2b1{justify-content:space-between!important}
+html:root:root .h2b a.h2b2{justify-content:flex-start!important}
+html:root:root .h2b a span,html:root:root .h2b a.h2b2 span{flex:1!important;text-align:left;white-space:nowrap}
+}

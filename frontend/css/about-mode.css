@@ -1,0 +1,4 @@
+.swp-aboutlink{display:none!important}
+html.swp-about .swp-aboutlink{display:inline-block!important}
+html.swp-about #board,html.swp-about .h2ch,html.swp-about #own{display:none!important}
+html.swp-about #dr .swp-aboutlink{display:block!important}

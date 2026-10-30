@@ -1,0 +1,42 @@
+:root{--bg:#f4f7fc;--card:#fff;--ink:#0b2347;--mut:#51627d;--gold:#b8872b;--gold2:#d9a63a;--line:#e3eaf4;--navbg:rgba(255,255,255,.94);--hd1:#0b2653;--hd2:#12356f;--sh:0 8px 24px rgba(16,41,74,.1);--ph:#eaf0f9}
+:root[data-theme="dark"]{--bg:#07101f;--card:#101e35;--ink:#fff;--mut:#b6c3d8;--gold:#f2c96b;--gold2:#f2c96b;--line:rgba(255,255,255,.1);--navbg:rgba(7,16,31,.94);--hd1:#050c18;--hd2:#0a1830;--sh:0 8px 24px rgba(0,0,0,.4);--ph:#16294a}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#07101f;--card:#101e35;--ink:#fff;--mut:#b6c3d8;--gold:#f2c96b;--gold2:#f2c96b;--line:rgba(255,255,255,.1);--navbg:rgba(7,16,31,.94);--hd1:#050c18;--hd2:#0a1830;--sh:0 8px 24px rgba(0,0,0,.4);--ph:#16294a}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Source Sans 3","Hind Siliguri",sans-serif;line-height:1.5}
+.abw{max-width:1200px;margin:0 auto;padding:0 24px}
+.abn{position:sticky;top:0;z-index:20;background:var(--navbg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.abn .abw{display:flex;align-items:center;justify-content:space-between;height:68px}
+.ablogo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:Raleway,"Hind Siliguri",sans-serif;font-weight:700;font-size:20px;line-height:1.1;letter-spacing:.03em}
+.ablogo small{display:block;font-size:10px;letter-spacing:.3em;color:var(--mut);font-weight:600}
+.abr{display:flex;align-items:center;gap:8px}
+.abhome{font-family:Raleway,"Hind Siliguri",sans-serif;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);text-decoration:none;margin-right:6px}
+.abbtn{font:600 14px "Source Sans 3","Hind Siliguri",sans-serif;color:var(--ink);background:transparent;border:1.5px solid var(--ink);border-radius:10px;padding:6px 12px;cursor:pointer;min-height:36px}
+.abh{background:linear-gradient(135deg,var(--hd1),var(--hd2)) center/cover no-repeat;color:#fff;padding:54px 0 70px;position:relative}
+.abh.img:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,20,45,.9),rgba(6,20,45,.55))}
+.abh .abw{position:relative}
+.abe{font:700 13px Raleway,"Hind Siliguri",sans-serif;letter-spacing:.32em;color:#f2c96b}
+.abh h1{font-family:Raleway,"Hind Siliguri",sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:46px;line-height:1.08;margin:10px 0 12px;color:#fff}
+.abh h1 em{font-style:normal;color:#f2c96b}
+.abh p{margin:0;max-width:620px;font-size:18px;color:rgba(255,255,255,.9)}
+.abm{margin-top:-36px;position:relative;padding-bottom:56px}
+.abg{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:20px}
+.abc{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh);overflow:hidden;text-align:center;padding-bottom:18px}
+.abc.ch{border-color:var(--gold2);box-shadow:0 0 0 2px var(--gold2),var(--sh)}
+.abp{height:230px;background:var(--ph);display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.abp img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.abp svg{width:62%;height:78%}
+.abc h3{font:700 15px Raleway,"Hind Siliguri",sans-serif;text-transform:uppercase;letter-spacing:.03em;margin:16px 12px 6px;line-height:1.25;min-height:38px;display:flex;align-items:center;justify-content:center;color:var(--ink)}
+.abc i{display:block;width:28px;height:2px;background:var(--gold2);margin:0 auto 8px}
+.abc p{margin:0 10px;font-size:14px;font-weight:600;color:var(--gold)}
+.abf{border-top:1px solid var(--line);color:var(--mut);font-size:14px;padding:20px 0}
+.abf .abw{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.abf a{color:var(--gold);font-weight:600;text-decoration:none}
+html[data-bnui] .abh h1,html[data-bnui] .abc h3,html[data-bnui] .abe,html[data-bnui] .abhome{text-transform:none;letter-spacing:0}
+@media(max-width:700px){
+.abw{padding:0 16px}
+.abn .abw{height:60px}.ablogo{font-size:17px}.ablogo small{font-size:9px}
+.abh{padding:34px 0 56px}.abh h1{font-size:30px}.abh p{font-size:16px}
+.abg{grid-template-columns:1fr 1fr;gap:12px}
+.abp{height:170px}.abc h3{font-size:12.5px;margin:12px 8px 6px;min-height:32px}.abc p{font-size:12.5px}
+.abhome{display:none}
+}

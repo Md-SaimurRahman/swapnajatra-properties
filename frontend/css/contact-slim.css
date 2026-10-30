@@ -1,0 +1,40 @@
+/* phone only: compact Contact Us */
+@media(max-width:560px){
+html:root:root .ct2l{display:grid!important;grid-template-columns:1fr 1fr;column-gap:0}
+html:root:root .ct2l>*{grid-column:1/-1;min-width:0}
+html:root:root .ct2l>.ct2r:nth-of-type(2),html:root:root .ct2l>.ct2r:nth-of-type(3){grid-column:auto;flex-direction:column;align-items:flex-start;gap:6px;padding:12px 12px 10px;margin:0!important;border-radius:18px 0 0 18px}
+html:root:root .ct2l>.ct2r:nth-of-type(3){border-radius:0 18px 18px 0;border-left:1px solid rgba(16,41,74,.12)}
+html:root:root .ct2l>.ct2r:nth-of-type(4){margin-top:10px}
+html:root:root .ct2l .ct2i{width:30px;height:30px}
+html:root:root .ct2l .ct2i svg{width:15px;height:15px}
+html:root:root .ct2l .ct2r>div{padding-top:0;font-size:12.5px;line-height:1.45}
+html:root:root .ct2l .ct2r a{font-size:13.5px;line-height:1.5}
+html:root:root .ct2mh{display:grid!important;grid-template-columns:.8fr 1.7fr!important;margin-top:10px!important;gap:6px!important;align-items:stretch}
+html:root:root .ct2m{min-width:0}
+html:root:root .ct2m .mini{border-radius:14px!important;padding:0!important;height:100%}
+html:root:root .ct2m .mini-map{min-height:0!important;flex:1!important}
+html:root:root .ct2m .mini-map .chip{display:none!important}
+html:root:root .ct2m .mini-cta{padding:8px 10px!important;font-size:12px!important;line-height:1.3!important}
+/* info: separate small cards side by side */
+html:root:root .ct2h{display:grid!important;grid-template-columns:1fr;gap:6px;background:none!important;border:0!important;box-shadow:none!important;padding:0!important;backdrop-filter:none!important;border-radius:0!important;min-width:0}
+html:root:root .ct2h .ct2r{background:rgba(255,255,255,.95)!important;border-radius:14px!important;padding:8px 10px!important;margin:0!important;box-shadow:0 8px 22px rgba(16,41,74,.14)!important;flex-direction:row;align-items:center;gap:9px;min-width:0}
+html:root:root .ct2h .ct2i{width:24px;height:24px}
+html:root:root .ct2h .ct2i svg{width:13px;height:13px}
+html:root:root .ct2h .ct2r>div{font-size:10.5px!important;padding-top:0!important;line-height:1.3!important}
+html:root:root .ct2h .ct2r b{font-size:12px!important;line-height:1.25!important;margin-bottom:1px}
+html:root:root .ct2h .ct2r span:not(.ct2i){font-size:10.5px!important;line-height:1.3!important}
+}
+@media(max-width:560px){
+html[data-theme="dark"]:root:root .ct2h .ct2r{background:rgba(16,30,53,.92)!important;border:1px solid rgba(255,255,255,.1)!important;box-shadow:0 8px 22px rgba(0,0,0,.4)!important}
+html[data-theme="dark"]:root:root .ct2l>.ct2r:nth-of-type(3){border-left:1px solid rgba(255,255,255,.1)}
+}
+@media(max-width:560px) and (prefers-color-scheme:dark){
+html:root:root:not([data-theme="light"]) .ct2h .ct2r{background:rgba(16,30,53,.92)!important;border:1px solid rgba(255,255,255,.1)!important;box-shadow:0 8px 22px rgba(0,0,0,.4)!important}
+html:root:root:not([data-theme="light"]) .ct2l>.ct2r:nth-of-type(3){border-left:1px solid rgba(255,255,255,.1)}
+}
+@media(max-width:560px){
+html[data-theme="dark"]:root:root .ct2h{background:none!important;border:0!important;box-shadow:none!important}
+}
+@media(max-width:560px) and (prefers-color-scheme:dark){
+html:root:root:not([data-theme="light"]) .ct2h{background:none!important;border:0!important;box-shadow:none!important}
+}

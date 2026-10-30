@@ -20,4 +20,17 @@ html:root:root .em2in p{color:rgba(255,255,255,.93)!important}
 html:root:root #how.hw2,html:root:root #landcta.lc{margin:14px 14px 0!important;border-radius:28px!important;overflow:hidden}
 html:root:root .pr2t h2:after,html:root:root .bd2t h2:after,html:root:root .em2in h2:after,html:root:root .sv2w h2:after{background:linear-gradient(90deg,#f2c96b,#e8c276)!important}
 html:root:root #landcta .btn,html:root:root .ct2f .btn,html:root:root .ct2f button[type=submit]{border-radius:999px!important}
+/* ---- Contact Us ---- */
+html:root:root #contact.ct2:before{content:"";position:absolute;left:0;right:0;top:0;height:280px;background:linear-gradient(180deg,rgba(6,20,45,.78) 0%,rgba(6,20,45,.55) 55%,rgba(6,20,45,0) 100%);z-index:0;pointer-events:none}
+html:root:root #contact.ct2>*{position:relative;z-index:1}
+html:root:root .ct2l h2{color:#fff!important;-webkit-text-fill-color:#fff!important}
+html:root:root .ct2l h2 em{color:#f2c96b!important;-webkit-text-fill-color:#f2c96b!important}
+html:root:root .ct2l h2:after{background:linear-gradient(90deg,#f2c96b,#e8c276)!important}
+html:root:root .ct2s{color:rgba(255,255,255,.93)!important}
+html:root:root .ct2r{background:rgba(255,255,255,.95);border-radius:18px;padding:12px 14px;box-shadow:0 10px 26px rgba(16,41,74,.14);margin-bottom:10px}
+html:root:root .ct2h .ct2r{background:none!important;box-shadow:none!important;padding:0!important;border-radius:0!important;margin-bottom:0}
+html:root:root #contact.ct2 .ct2l p.ct2s{color:rgba(255,255,255,.94)!important;-webkit-text-fill-color:rgba(255,255,255,.94)!important}
+/* night mode: no gradient box behind the Properties / Home Loan titles */
+html[data-theme="dark"]:root:root .pr2t h2,html[data-theme="dark"]:root:root .em2in h2,html:root:root:not([data-theme="light"]) .pr2t h2,html:root:root:not([data-theme="light"]) .em2in h2{background-image:none!important;background:none!important;-webkit-text-fill-color:#fff!important;color:#fff!important}
+html[data-theme="dark"]:root:root .pr2t h2 em,html[data-theme="dark"]:root:root .em2in h2 em,html:root:root:not([data-theme="light"]) .pr2t h2 em,html:root:root:not([data-theme="light"]) .em2in h2 em{-webkit-text-fill-color:#f2c96b!important;color:#f2c96b!important}
 }

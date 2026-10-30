@@ -31,10 +31,15 @@ html:root:root .ct2r{background:rgba(255,255,255,.95);border-radius:18px;padding
 html:root:root .ct2h .ct2r{background:none!important;box-shadow:none!important;padding:0!important;border-radius:0!important;margin-bottom:0}
 html:root:root #contact.ct2 .ct2l p.ct2s{color:rgba(255,255,255,.94)!important;-webkit-text-fill-color:rgba(255,255,255,.94)!important}
 /* night mode: no gradient box behind the Properties / Home Loan titles */
-html[data-theme="dark"]:root:root .pr2t h2,html[data-theme="dark"]:root:root .em2in h2,html:root:root:not([data-theme="light"]) .pr2t h2,html:root:root:not([data-theme="light"]) .em2in h2{background-image:none!important;background:none!important;-webkit-text-fill-color:#fff!important;color:#fff!important}
-html[data-theme="dark"]:root:root .pr2t h2 em,html[data-theme="dark"]:root:root .em2in h2 em,html:root:root:not([data-theme="light"]) .pr2t h2 em,html:root:root:not([data-theme="light"]) .em2in h2 em{-webkit-text-fill-color:#f2c96b!important;color:#f2c96b!important}
+html[data-theme="dark"]:root:root .pr2t h2,html[data-theme="dark"]:root:root .em2in h2{background-image:none!important;background:none!important;-webkit-text-fill-color:#fff!important;color:#fff!important}
+@media(prefers-color-scheme:dark){html:root:root:not([data-theme="light"]) .pr2t h2,html:root:root:not([data-theme="light"]) .em2in h2{background-image:none!important;background:none!important;-webkit-text-fill-color:#fff!important;color:#fff!important}}
+html[data-theme="dark"]:root:root .pr2t h2 em,html[data-theme="dark"]:root:root .em2in h2 em{-webkit-text-fill-color:#f2c96b!important;color:#f2c96b!important}
+@media(prefers-color-scheme:dark){html:root:root:not([data-theme="light"]) .pr2t h2 em,html:root:root:not([data-theme="light"]) .em2in h2 em{-webkit-text-fill-color:#f2c96b!important;color:#f2c96b!important}}
 /* night mode: Contact Us */
-html[data-theme="dark"]:root:root #contact.ct2:before,html:root:root:not([data-theme="light"]) #contact.ct2:before{height:auto!important;bottom:0!important}
-html[data-theme="dark"]:root:root .ct2r,html:root:root:not([data-theme="light"]) .ct2r{background:rgba(16,30,53,.92)!important;border:1px solid rgba(255,255,255,.1);box-shadow:0 10px 30px rgba(0,0,0,.4)!important}
-html[data-theme="dark"]:root:root .ct2h .ct2r,html:root:root:not([data-theme="light"]) .ct2h .ct2r{background:none!important;border:0!important;box-shadow:none!important}
+html[data-theme="dark"]:root:root #contact.ct2:before{height:auto!important;bottom:0!important}
+@media(prefers-color-scheme:dark){html:root:root:not([data-theme="light"]) #contact.ct2:before{height:auto!important;bottom:0!important}}
+html[data-theme="dark"]:root:root .ct2r{background:rgba(16,30,53,.92)!important;border:1px solid rgba(255,255,255,.1);box-shadow:0 10px 30px rgba(0,0,0,.4)!important}
+@media(prefers-color-scheme:dark){html:root:root:not([data-theme="light"]) .ct2r{background:rgba(16,30,53,.92)!important;border:1px solid rgba(255,255,255,.1);box-shadow:0 10px 30px rgba(0,0,0,.4)!important}}
+html[data-theme="dark"]:root:root .ct2h .ct2r{background:none!important;border:0!important;box-shadow:none!important}
+@media(prefers-color-scheme:dark){html:root:root:not([data-theme="light"]) .ct2h .ct2r{background:none!important;border:0!important;box-shadow:none!important}}
 }

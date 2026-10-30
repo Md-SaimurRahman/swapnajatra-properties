@@ -1,0 +1,25 @@
+/* laptop only: light "How we work" in day mode (night keeps dark) */
+@media(min-width:901px){
+html[data-theme="light"]:root:root #how.hw2{background:linear-gradient(180deg,#eef3fa,#e4ecf7)!important}
+html[data-theme="light"]:root:root #how.hw2 h2{color:#0b2347!important;-webkit-text-fill-color:#0b2347!important}
+html[data-theme="light"]:root:root #how.hw2 h2 em{color:#b8872b!important;-webkit-text-fill-color:#b8872b!important}
+html[data-theme="light"]:root:root #how.hw2 .hd .sv2e{color:#b8872b!important}
+html[data-theme="light"]:root:root #how.hw2 .hd p{color:#51627d!important}
+html[data-theme="light"]:root:root #how.hw2 .stp b{color:#b8872b!important}
+html[data-theme="light"]:root:root #how.hw2 .stp h3{color:#0b2347!important}
+html[data-theme="light"]:root:root #how.hw2 .stp p{color:#51627d!important}
+html[data-theme="light"]:root:root #how.hw2 .hwi{color:#0b2347!important;background:#fff!important;border-color:#c9a04a!important}
+html[data-theme="light"]:root:root #how.hw2 .st:before{border-top-color:#c9a04a!important}
+}
+@media(min-width:901px) and (prefers-color-scheme:light){
+html:root:root:not([data-theme="dark"]) #how.hw2{background:linear-gradient(180deg,#eef3fa,#e4ecf7)!important}
+html:root:root:not([data-theme="dark"]) #how.hw2 h2{color:#0b2347!important;-webkit-text-fill-color:#0b2347!important}
+html:root:root:not([data-theme="dark"]) #how.hw2 h2 em{color:#b8872b!important;-webkit-text-fill-color:#b8872b!important}
+html:root:root:not([data-theme="dark"]) #how.hw2 .hd .sv2e{color:#b8872b!important}
+html:root:root:not([data-theme="dark"]) #how.hw2 .hd p{color:#51627d!important}
+html:root:root:not([data-theme="dark"]) #how.hw2 .stp b{color:#b8872b!important}
+html:root:root:not([data-theme="dark"]) #how.hw2 .stp h3{color:#0b2347!important}
+html:root:root:not([data-theme="dark"]) #how.hw2 .stp p{color:#51627d!important}
+html:root:root:not([data-theme="dark"]) #how.hw2 .hwi{color:#0b2347!important;background:#fff!important;border-color:#c9a04a!important}
+html:root:root:not([data-theme="dark"]) #how.hw2 .st:before{border-top-color:#c9a04a!important}
+}

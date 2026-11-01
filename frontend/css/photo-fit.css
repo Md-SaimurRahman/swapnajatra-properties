@@ -1,0 +1,5 @@
+/* show the WHOLE property photo (no cropping) in the cards and in View details */
+html:root:root .card .ph img,html:root:root #md .gl .m img,html:root:root #md .th button img{object-fit:contain!important;object-position:center!important;background:#eef3fa}
+html:root:root #md .gl .m{background:#eef3fa}
+html[data-theme="dark"]:root:root .card .ph img,html[data-theme="dark"]:root:root #md .gl .m img,html[data-theme="dark"]:root:root #md .th button img,html[data-theme="dark"]:root:root #md .gl .m{background:#101e35}
+@media(prefers-color-scheme:dark){html:root:root:not([data-theme="light"]) .card .ph img,html:root:root:not([data-theme="light"]) #md .gl .m img,html:root:root:not([data-theme="light"]) #md .th button img,html:root:root:not([data-theme="light"]) #md .gl .m{background:#101e35}}

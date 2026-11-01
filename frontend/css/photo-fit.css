@@ -1,5 +1,18 @@
-/* show the WHOLE property photo (no cropping) in the cards and in View details */
-html:root:root .card .ph img,html:root:root #md .gl .m img,html:root:root #md .th button img{object-fit:contain!important;object-position:center!important;background:#eef3fa}
-html:root:root #md .gl .m{background:#eef3fa}
-html[data-theme="dark"]:root:root .card .ph img,html[data-theme="dark"]:root:root #md .gl .m img,html[data-theme="dark"]:root:root #md .th button img,html[data-theme="dark"]:root:root #md .gl .m{background:#101e35}
-@media(prefers-color-scheme:dark){html:root:root:not([data-theme="light"]) .card .ph img,html:root:root:not([data-theme="light"]) #md .gl .m img,html:root:root:not([data-theme="light"]) #md .th button img,html:root:root:not([data-theme="light"]) #md .gl .m{background:#101e35}}
+/* property photos: never cropped. Cards show the whole photo; View details fits its size to each photo (no empty borders) */
+html:root:root .card .ph img{object-fit:contain!important;object-position:center!important;background:#eef3fa}
+html[data-theme="dark"]:root:root .card .ph img{background:#101e35}
+@media(prefers-color-scheme:dark){html:root:root:not([data-theme="light"]) .card .ph img{background:#101e35}}
+
+/* View details window: left side takes exactly the photo's size */
+@media(min-width:901px){
+html:root:root #md .mb{grid-template-columns:auto minmax(330px,1fr)!important;width:auto!important;max-width:min(980px,96vw)!important}
+html:root:root #md .gl{width:fit-content;max-width:min(620px,62vw);align-self:start}
+}
+html:root:root #md .gl,html:root:root #md .gl .m{background:transparent!important}
+html:root:root #md .gl .m{aspect-ratio:auto!important;display:flex;justify-content:center;align-items:center}
+html:root:root #md .gl .m img{width:auto!important;height:auto!important;max-width:min(620px,62vw);max-height:calc(92vh - 110px);object-fit:contain!important;background:transparent!important;display:block}
+@media(max-width:900px){html:root:root #md .gl .m img{max-width:100%;max-height:62vh}}
+/* thumbnails: one scrolling row, each shows its whole photo */
+html:root:root #md .th{overflow-x:auto;scrollbar-width:thin;width:0;min-width:100%;box-sizing:border-box}
+html:root:root #md .th button{flex:0 0 64px;aspect-ratio:4/3;background:rgba(127,150,185,.14)}
+html:root:root #md .th button img{object-fit:contain!important;background:transparent!important}

@@ -1,0 +1,16 @@
+/* admin menu button (laptop): day = plain white (box not noticeable) with 3 navy lines; night = navy square with 3 gold lines */
+html:root:root .dmenu>button{width:40px!important;height:40px!important;border-radius:12px!important;border:0!important;background:#fff!important;display:flex!important;flex-direction:column!important;align-items:flex-end!important;justify-content:center!important;gap:5px!important;padding:0 9px 0 0!important;box-shadow:none!important;transition:transform .2s,box-shadow .2s!important}
+html:root:root .dmenu>button span,html:root:root .scr .dmenu>button span{height:2.5px!important;border-radius:2px!important;background:#10294a!important;display:block!important}
+html:root:root .dmenu>button span:nth-child(1){width:22px!important}
+html:root:root .dmenu>button span:nth-child(2){width:15px!important}
+html:root:root .dmenu>button span:nth-child(3){width:9px!important}
+html:root:root .dmenu>button:hover{background:#eef3fa!important}
+/* night: keep the site's usual night box + colour, only the 3-line design is new */
+html[data-theme="dark"]:root:root .dmenu>button{background:rgba(255,255,255,.08)!important;border:1px solid rgba(255,255,255,.3)!important;border-radius:8px!important;box-shadow:none!important}
+html[data-theme="dark"]:root:root .dmenu>button:hover{background:rgba(255,255,255,.16)!important}
+html[data-theme="dark"]:root:root .dmenu>button span{background:#eef3f9!important}
+@media(prefers-color-scheme:dark){
+html:root:root:not([data-theme="light"]) .dmenu>button{background:rgba(255,255,255,.08)!important;border:1px solid rgba(255,255,255,.3)!important;border-radius:8px!important;box-shadow:none!important}
+html:root:root:not([data-theme="light"]) .dmenu>button:hover{background:rgba(255,255,255,.16)!important}
+html:root:root:not([data-theme="light"]) .dmenu>button span{background:#eef3f9!important}
+}

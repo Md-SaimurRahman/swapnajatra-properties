@@ -1,0 +1,9 @@
+/* phone menu button: same 3-line design as the laptop admin button (long, medium, short; right aligned) */
+@media(max-width:900px){
+html:root:root #ham{background-color:transparent!important;background-image:linear-gradient(#10294a,#10294a),linear-gradient(#10294a,#10294a),linear-gradient(#10294a,#10294a)!important;background-repeat:no-repeat!important;background-size:22px 2.5px,15px 2.5px,9px 2.5px!important;background-position:right 11px top 13.5px,right 11px top 21px,right 11px top 28.5px!important}
+/* night: light lines */
+html[data-theme="dark"]:root:root #ham{background-image:linear-gradient(#eef3f9,#eef3f9),linear-gradient(#eef3f9,#eef3f9),linear-gradient(#eef3f9,#eef3f9)!important}
+}
+@media(max-width:900px) and (prefers-color-scheme:dark){
+html:root:root:not([data-theme="light"]) #ham{background-image:linear-gradient(#eef3f9,#eef3f9),linear-gradient(#eef3f9,#eef3f9),linear-gradient(#eef3f9,#eef3f9)!important}
+}

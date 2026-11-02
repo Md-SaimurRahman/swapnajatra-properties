@@ -1,0 +1,5 @@
+/* View details / popups: stop the whole popup from flashing when the photo changes.
+   The full-screen blur behind the popup (backdrop-filter) is re-drawn on every photo change and flashes; replace it with a plain dark overlay. */
+html:root:root .md{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:rgba(10,20,34,.74)!important}
+html:root:root .md .mb{transform:translateZ(0);will-change:transform;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+html:root:root .md .mb img{-webkit-transform:translateZ(0);transform:translateZ(0)}

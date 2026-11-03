@@ -53,7 +53,7 @@ $('#loginForm').onsubmit = async (e) => {
 $('#logout').onclick = async () => { try { await api('POST', '/auth/logout'); } catch (_) { /* ignore */ } showLogin(); };
 
 /* ---------- navigation ---------- */
-const VIEWS = [['overview', 'Overview'], ['content', 'Website Content'], ['properties', 'Properties'], ['projects', 'Projects'], ['services', 'Services'], ['team', 'Team'], ['visits', 'Visit Requests'], ['enquiries', 'Enquiries'], ['settings', 'Settings'], ['account', 'Admin Account']];
+const VIEWS = [['overview', 'Overview'], ['content', 'Website Content'], ['properties', 'Properties'], ['projects', 'Projects'], ['services', 'Services'], ['news', 'News'], ['notices', 'Notices'], ['photos', 'Photo Gallery'], ['videos', 'Video Gallery'], ['team', 'Team'], ['visits', 'Visit Requests'], ['enquiries', 'Enquiries'], ['settings', 'Settings'], ['account', 'Admin Account']];
 const nav = $('#nav');
 VIEWS.forEach(([k, l]) => nav.append(h('button', { class: 'navb', 'data-v': k, type: 'button', onclick: () => { location.hash = '#/' + k; closeSide(); } }, l)));
 const closeSide = () => { $('#side').classList.remove('open'); $('#scrim').classList.remove('open'); };
@@ -255,6 +255,32 @@ RENDER.services = () => crudView({
     { k: 'sort_order', label: 'Display order (lower first)', type: 'number', def: 0 }, { k: 'status', label: 'Status', type: 'select', options: [['active', 'Enabled'], ['disabled', 'Disabled']], def: 'active' },
     { k: 'image', label: 'Image (optional)', type: 'image', full: true, def: '' }],
 });
+
+/* ---------- News & Media ---------- */
+const ytId = (u) => { const m = /(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|shorts\/|embed\/|live\/))([\w-]{11})/.exec(u || ''); return m ? m[1] : ''; };
+const mediaThumb = (it) => { const s = it.image || (it.images && it.images[0]) || (ytId(it.url) ? 'https://i.ytimg.com/vi/' + ytId(it.url) + '/default.jpg' : ''); return s ? h('img', { src: s, alt: '', style: 'width:56px;height:42px;object-fit:cover;border-radius:6px' }) : '—'; };
+const mediaView = (kind, noun, fields) => crudView({
+  noun, path: '/media-' + kind, searchHint: 'Title', filters: [],
+  cols: [{ label: 'Image', render: mediaThumb }, { label: 'Title', render: (it) => h('b', {}, it.title) }, { label: 'Date', render: (it) => it.date || '—' },
+    ...(kind === 'photos' ? [{ label: 'Photos', render: (it) => String((it.images || []).length) }] : [])],
+  fields,
+});
+const TT = [{ k: 'title', label: 'Title (English)', required: true, full: true }, { k: 'title_bn', label: 'Title (বাংলা)', full: true }, { k: 'date', label: 'Date', type: 'date', def: new Date().toISOString().slice(0, 10) }];
+RENDER.news = () => mediaView('news', 'news item', [...TT,
+  { k: 'summary', label: 'Short summary (English)', type: 'textarea', rows: 2, full: true, hint: 'Shown on the news list card' }, { k: 'summary_bn', label: 'Short summary (বাংলা)', type: 'textarea', rows: 2, full: true },
+  { k: 'body', label: 'Full news (English)', type: 'textarea', rows: 8, full: true, hint: 'Leave a blank line between paragraphs' }, { k: 'body_bn', label: 'Full news (বাংলা)', type: 'textarea', rows: 8, full: true },
+  { k: 'image', label: 'Main photo', type: 'image', full: true, def: '' }, { k: 'images', label: 'More photos (optional)', type: 'images', full: true, def: [] }]);
+RENDER.notices = () => mediaView('notices', 'notice', [...TT,
+  { k: 'summary', label: 'Short line (English)', type: 'textarea', rows: 2, full: true, hint: 'Shown in the notice list' }, { k: 'summary_bn', label: 'Short line (বাংলা)', type: 'textarea', rows: 2, full: true },
+  { k: 'body', label: 'Notice details (English)', type: 'textarea', rows: 8, full: true }, { k: 'body_bn', label: 'Notice details (বাংলা)', type: 'textarea', rows: 8, full: true },
+  { k: 'url', label: 'Document link (optional)', full: true, placeholder: 'https://…', hint: 'e.g. a Google Drive / PDF link' }, { k: 'images', label: 'Notice photos / scanned copy (optional)', type: 'images', full: true, def: [] }]);
+RENDER.photos = () => mediaView('photos', 'album', [...TT,
+  { k: 'summary', label: 'Description (English)', type: 'textarea', rows: 3, full: true }, { k: 'summary_bn', label: 'Description (বাংলা)', type: 'textarea', rows: 3, full: true },
+  { k: 'images', label: 'Photos (the first one is the cover)', type: 'images', full: true, def: [] }]);
+RENDER.videos = () => mediaView('videos', 'video', [...TT,
+  { k: 'url', label: 'Video link *', full: true, placeholder: 'https://www.youtube.com/watch?v=…', hint: 'Paste a YouTube, Facebook or Vimeo link. The video plays on the website.' },
+  { k: 'summary', label: 'Description (English)', type: 'textarea', rows: 3, full: true }, { k: 'summary_bn', label: 'Description (বাংলা)', type: 'textarea', rows: 3, full: true },
+  { k: 'image', label: 'Custom cover photo (optional)', type: 'image', full: true, def: '' }]);
 
 /* team v1 */
 RENDER.team = () => crudView({

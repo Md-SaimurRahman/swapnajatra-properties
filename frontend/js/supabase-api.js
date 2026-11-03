@@ -292,13 +292,72 @@
     return null;
   }
 
+  
+  /* ---------- News & Media (news / notices / photos / videos) kept as small lists inside site_content ---------- */
+  var MKINDS = ['news', 'notices', 'photos', 'videos'];
+  var MSCHEMA = {
+    title: { type: 'str', required: true, max: 200 }, title_bn: { type: 'str', max: 300 }, summary: { type: 'str', max: 600 }, summary_bn: { type: 'str', max: 600 },
+    body: { type: 'str', max: 8000 }, body_bn: { type: 'str', max: 8000 }, image: { type: 'img' }, images: { type: 'strarr', maxItems: 40, itemMax: 1000, urls: true },
+    url: { type: 'url' }, date: { type: 'date' } };
+  function mediaSort(a, b) { return String(b.date || '').localeCompare(String(a.date || '')) || (b.id || 0) - (a.id || 0); }
+  function parseMedia(v) { try { var a = JSON.parse(v || '[]'); return Array.isArray(a) ? a : []; } catch (_) { return []; } }
+  function pickMedia(rows) {
+    var out = { news: [], notices: [], photos: [], videos: [] };
+    (rows || []).forEach(function (r) { var m = /^media_(news|notices|photos|videos)$/.exec(r.key || ''); if (m) out[m[1]] = parseMedia(r.value).sort(mediaSort); });
+    return out;
+  }
+  async function mediaLoad(kind) { var r = await need(sb.from('site_content').select('value').eq('key', 'media_' + kind).maybeSingle()); return parseMedia(r.data && r.data.value); }
+  async function mediaSave(kind, arr) { await need(sb.from('site_content').upsert({ key: 'media_' + kind, value: JSON.stringify(arr), value_bn: '' }, { onConflict: 'key' })); }
+  function mediaFiles(it) { var a = []; if (it && it.image) a.push(it.image); return a.concat((it && it.images) || []); }
+  function mediaValidate(kind, body, partial) {
+    var v = clean(body, MSCHEMA, partial);
+    if (!partial) {
+      if (kind === 'videos' && !v.data.url) v.errors.url = 'Video link is required';
+      if (kind === 'photos' && !(v.data.images && v.data.images.length)) v.errors.images = 'Add at least one photo';
+    }
+    if (Object.keys(v.errors).length) throw bad(v.errors);
+    return v.data;
+  }
+  async function mediaRoute(kind, method, id, q, body) {
+    var items = await mediaLoad(kind);
+    if (!id) {
+      if (method === 'GET') {
+        var list = items.slice().sort(mediaSort), s2 = String(q.q || '').toLowerCase().trim();
+        if (s2) list = list.filter(function (i) { return ((i.title || '') + ' ' + (i.title_bn || '')).toLowerCase().indexOf(s2) >= 0; });
+        var limit = Math.min(Math.max(parseInt(q.limit, 10) || 20, 1), 100), page = Math.max(parseInt(q.page, 10) || 1, 1);
+        return { items: list.slice((page - 1) * limit, page * limit), total: list.length, page: page, limit: limit };
+      }
+      if (method === 'POST') {
+        var d = mediaValidate(kind, body, false);
+        d.id = items.reduce(function (m, i) { return Math.max(m, i.id || 0); }, 0) + 1;
+        if (!d.date) d.date = new Date().toISOString().slice(0, 10);
+        items.push(d); await mediaSave(kind, items); return d;
+      }
+      throw HttpErr(405, 'Method not allowed');
+    }
+    id = Number(id); if (!Number.isInteger(id) || id < 1) throw HttpErr(404, 'Not found');
+    var idx = items.findIndex(function (i) { return i.id === id; });
+    if (idx < 0) throw HttpErr(404, 'Not found');
+    var before = items[idx];
+    if (method === 'GET') return before;
+    if (method === 'PUT' || method === 'PATCH') {
+      var d2 = mediaValidate(kind, body, method === 'PATCH');
+      var row = Object.assign({}, before, d2, { id: id }); if (!row.date) row.date = before.date || new Date().toISOString().slice(0, 10);
+      items[idx] = row; await mediaSave(kind, items);
+      await removeFiles(removedBetween(mediaFiles(before), mediaFiles(row)));
+      return row;
+    }
+    if (method === 'DELETE') { items.splice(idx, 1); await mediaSave(kind, items); await removeFiles(mediaFiles(before)); return { ok: true }; }
+    throw HttpErr(405, 'Method not allowed');
+  }
+
   async function handle(method, path, q, body) {
     var m, seg = path.replace(/^\/+|\/+$/g, '').split('/');
 
     /* ----- public ----- */
     if (seg[0] === 'bootstrap' && method === 'GET') {
       var b = (await need(sb.rpc('public_bootstrap'))).data;
-      return { settings: mergeSettings(b.settings, true), content: mergeContent(b.content), services: b.services, projects: b.projects, properties: b.properties, team: b.team };
+      return { settings: mergeSettings(b.settings, true), content: mergeContent(b.content), services: b.services, projects: b.projects, properties: b.properties, team: b.team, media: pickMedia(b.content) };
     }
     if (seg[0] === 'enquiries' && method === 'POST') {
       if (body && typeof body.website === 'string' && body.website.trim()) return { ok: true };           // honeypot
@@ -393,6 +452,7 @@
         if (up2.error) throw HttpErr(500, 'Upload failed: ' + up2.error.message);
         return { url: PUBLIC_BASE + name };
       }
+      var mm = /^media-(news|notices|photos|videos)$/.exec(res || ''); if (mm) return mediaRoute(mm[1], method, id, q, body);
       if (res === 'stats' && method === 'GET') return (await need(sb.rpc('admin_stats'))).data;
       if (res === 'demo-data' && method === 'DELETE') {
         var dd = await need(sb.from('properties').delete().eq('is_demo', true).select('images'));

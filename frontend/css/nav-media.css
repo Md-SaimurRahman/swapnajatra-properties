@@ -1,0 +1,25 @@
+/* "News & Media" dropdown in the top menu + phone drawer */
+.nmdd{position:relative;display:flex;align-items:center}
+.nmdd:after{content:"";position:absolute;left:-10px;right:-10px;top:100%;height:16px}
+.nmdd>a .nmcv,.nmdt .nmcv{display:inline-block;width:6px;height:6px;margin:0 0 3px 7px;border-right:1.8px solid currentColor;border-bottom:1.8px solid currentColor;transform:rotate(45deg);transition:transform .2s}
+.nmdd:hover>a .nmcv,.nmdd:focus-within>a .nmcv{transform:rotate(-135deg);margin-bottom:-2px}
+.nmmenu{position:absolute;top:calc(100% + 12px);left:50%;transform:translate(-50%,8px);min-width:210px;padding:8px;border-radius:14px;background:#fff;border:1px solid #e3eaf4;box-shadow:0 14px 34px rgba(16,41,74,.18);opacity:0;visibility:hidden;transition:opacity .18s,transform .18s,visibility .18s;z-index:70;display:flex;flex-direction:column;gap:2px}
+.nmdd:hover .nmmenu,.nmdd:focus-within .nmmenu{opacity:1;visibility:visible;transform:translate(-50%,0)}
+html:root:root nav .links .nmmenu a{display:block;padding:11px 14px;border-radius:9px;color:#10294a!important;white-space:nowrap;font-size:14px!important;text-align:left}
+html:root:root nav .links .nmmenu a:after{display:none!important}
+html:root:root nav .links .nmmenu a:hover{background:#eef3fa;color:#a97c1a!important}
+html[data-theme="dark"]:root:root nav .links .nmmenu{background:#0f1d36;border-color:rgba(255,255,255,.14);box-shadow:0 14px 34px rgba(0,0,0,.5)}
+html[data-theme="dark"]:root:root nav .links .nmmenu a{color:#e6edf8!important}
+html[data-theme="dark"]:root:root nav .links .nmmenu a:hover{background:rgba(255,255,255,.1);color:#f2c96b!important}
+@media(prefers-color-scheme:dark){
+html:root:root:not([data-theme="light"]) nav .links .nmmenu{background:#0f1d36;border-color:rgba(255,255,255,.14);box-shadow:0 14px 34px rgba(0,0,0,.5)}
+html:root:root:not([data-theme="light"]) nav .links .nmmenu a{color:#e6edf8!important}
+html:root:root:not([data-theme="light"]) nav .links .nmmenu a:hover{background:rgba(255,255,255,.1);color:#f2c96b!important}
+}
+/* phone drawer */
+.nmdt{display:flex;align-items:center;cursor:pointer}
+.nmdt .nmcv{margin-left:9px}
+.nmdt.o .nmcv{transform:rotate(-135deg);margin-bottom:-2px}
+.nmsub{display:none;flex-direction:column;gap:12px;margin:-4px 0 0 4px;padding-left:14px;border-left:2px solid #b8872b}
+.nmsub.o{display:flex}
+.nmsub a{font-size:16px;opacity:.9}

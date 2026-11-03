@@ -1,0 +1,55 @@
+/* News & Media pages (News, Notices, Photo Gallery, Video Gallery) */
+.nmtabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.nmtabs a{font:600 14px Raleway,"Hind Siliguri",sans-serif;text-decoration:none;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:99px;padding:9px 18px;box-shadow:var(--sh)}
+.nmtabs a.on{background:linear-gradient(135deg,#e3c98a,#b08e4e);border-color:transparent;color:#142339}
+.nmg{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:22px}
+.nmc{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh);overflow:hidden;text-decoration:none;color:var(--ink);transition:transform .2s}
+.nmc:hover{transform:translateY(-3px)}
+.nmi{position:relative;aspect-ratio:16/10;background:var(--ph);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.nmi img{width:100%;height:100%;object-fit:cover;display:block}
+.nmi svg.ph{width:46px;height:46px;opacity:.35}
+.nmbd{padding:16px 18px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.nmbd time,.nmd2{font:600 12.5px Raleway,"Hind Siliguri",sans-serif;color:var(--gold);letter-spacing:.04em}
+.nmbd h3{margin:0;font:700 18px/1.3 Raleway,"Hind Siliguri",sans-serif;color:var(--ink)}
+.nmbd p{margin:0;color:var(--mut);font-size:15px}
+.nmmore{margin-top:auto;padding-top:6px;font-weight:700;color:var(--gold);font-size:14px}
+.nmbadge{position:absolute;right:10px;bottom:10px;background:rgba(6,20,45,.78);color:#fff;font:600 12px "Source Sans 3",sans-serif;padding:4px 10px;border-radius:99px}
+.nmplay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(6,20,45,.25)}
+.nmplay i{width:58px;height:58px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center}
+.nmplay i:after{content:"";margin-left:5px;border-left:17px solid #0b2347;border-top:11px solid transparent;border-bottom:11px solid transparent}
+.nml{display:flex;flex-direction:column;gap:12px}
+.nmn{display:flex;gap:18px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh);padding:16px 20px;text-decoration:none;color:var(--ink)}
+.nmn:hover{border-color:var(--gold2)}
+.nmdt2{flex:0 0 66px;text-align:center;border-radius:12px;background:var(--ph);padding:8px 4px;font-family:Raleway,"Hind Siliguri",sans-serif;line-height:1.1}
+.nmdt2 b{display:block;font-size:24px;color:var(--ink)}.nmdt2 span{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:.05em}
+.nmn h3{margin:0 0 4px;font:700 17px/1.3 Raleway,"Hind Siliguri",sans-serif}
+.nmn p{margin:0;color:var(--mut);font-size:14.5px}
+.nmn .ar{margin-left:auto;font-size:22px;color:var(--gold)}
+.nmempty{background:var(--card);border:1px dashed var(--line);border-radius:18px;padding:46px 20px;text-align:center;color:var(--mut);font-size:17px}
+.nmback{display:inline-block;margin-bottom:14px;color:var(--gold);font-weight:700;text-decoration:none}
+.nmart{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--sh);padding:28px;max-width:900px}
+.nmart h2{margin:6px 0 16px;font:700 30px/1.2 Raleway,"Hind Siliguri",sans-serif;color:var(--ink)}
+.nmcov{display:block;width:100%;max-height:520px;object-fit:cover;border-radius:14px;margin:0 0 20px;cursor:zoom-in}
+.nmtx p{margin:0 0 14px;font-size:17px;line-height:1.7;color:var(--ink)}
+.nmtx a{color:var(--gold);word-break:break-all}
+.nmph{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-top:20px}
+.nmph button{border:0;padding:0;background:var(--ph);border-radius:12px;overflow:hidden;aspect-ratio:4/3;cursor:zoom-in}
+.nmph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s}.nmph button:hover img{transform:scale(1.05)}
+.nmvid{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;margin:0 0 18px}
+.nmvid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.nmbtn{display:inline-block;margin-top:6px;background:linear-gradient(135deg,#e3c98a,#b08e4e);color:#142339;font-weight:700;text-decoration:none;border-radius:10px;padding:11px 20px}
+.nmlb{position:fixed;inset:0;z-index:100;background:rgba(4,10,22,.94);display:flex;align-items:center;justify-content:center}
+.nmlb[hidden]{display:none}
+.nmlb img{max-width:92vw;max-height:84vh;object-fit:contain;border-radius:6px}
+.nmlb button{position:absolute;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:30px;width:46px;height:46px;border-radius:50%;cursor:pointer}
+.nmx{top:16px;right:16px}.nmp{left:14px;top:50%}.nmn2{right:14px;top:50%}
+.nmcnt{position:absolute;bottom:16px;left:0;right:0;text-align:center;color:#fff;font-size:14px}
+html[data-bnui] .nmtabs a,html[data-bnui] .nmbd h3{letter-spacing:0}
+@media(max-width:700px){
+.nmg{grid-template-columns:1fr;gap:16px}
+.nmart{padding:18px}.nmart h2{font-size:23px}.nmtx p{font-size:16px}
+.nmtabs{gap:6px}.nmtabs a{padding:8px 14px;font-size:13px}
+.nmn{padding:12px 14px;gap:12px}.nmdt2{flex-basis:56px}.nmdt2 b{font-size:20px}
+.nmph{grid-template-columns:repeat(2,1fr)}
+.nmp{left:6px}.nmn2{right:6px}
+}

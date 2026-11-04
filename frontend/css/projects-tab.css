@@ -34,3 +34,4 @@ html[data-theme="dark"]:root:root .pr2p .bt button[data-m="projects"]{border-lef
 html:root:root:not([data-theme="light"]) .pr2p .bt button[data-m="projects"]{border-left-color:#2a3d5a!important}
 @media(prefers-color-scheme:light){html:root:root:not([data-theme="dark"]) .pr2p .bt button[data-m="projects"]{border-left-color:var(--line)!important}}
 @media(max-width:900px){.pr2p .bt{width:64%!important;min-width:230px;max-width:340px;justify-self:start!important}.pr2p .bt button{padding-left:8px!important;padding-right:8px!important}}
+@media(min-width:901px){.pr2p .bt button{width:98px;padding-left:0!important;padding-right:0!important;text-align:center}}

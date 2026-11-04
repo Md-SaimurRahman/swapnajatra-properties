@@ -99,6 +99,24 @@ function buildField(f, val, ctx) {
   return wrap;
 }
 
+/* swp-shrink: resize big photos (max 2200px) before upload so storage lasts longer */
+async function shrink(file) {
+  try {
+    if (!/^image\/(jpeg|png|webp)$/.test(file.type)) return file;
+    const bmp = await createImageBitmap(file, { imageOrientation: 'from-image' });
+    const MAX = 2200, sc = Math.min(1, MAX / Math.max(bmp.width, bmp.height));
+    if (sc === 1 && file.size <= 1200 * 1024) { bmp.close && bmp.close(); return file; }
+    const w = Math.round(bmp.width * sc), hh = Math.round(bmp.height * sc);
+    const cv = document.createElement('canvas'); cv.width = w; cv.height = hh;
+    const cx = cv.getContext('2d'); cx.drawImage(bmp, 0, 0, w, hh); bmp.close && bmp.close();
+    const type = file.type === 'image/png' ? 'image/png' : 'image/jpeg';
+    const blob = await new Promise(r => cv.toBlob(r, type, 0.92));
+    if (!blob || blob.size >= file.size) return file;
+    const ext = type === 'image/png' ? '.png' : '.jpg';
+    return new File([blob], file.name.replace(/\.[^.]+$/, '') + ext, { type });
+  } catch (e) { return file; }
+}
+
 function uploader(state, multiple) {
   const box = h('div'), list = h('div', { class: 'imgs' }), msg = h('p', { class: 'err' });
   const input = h('input', { type: 'file', accept: 'image/jpeg,image/png,image/gif,image/webp', multiple: multiple || undefined, 'aria-label': 'Upload image' });
@@ -107,7 +125,7 @@ function uploader(state, multiple) {
   input.onchange = async () => {
     msg.textContent = '';
     for (const file of [...input.files]) {
-      try { const fd = new FormData(); fd.append('file', file); const r = await api('POST', A('/uploads'), fd); if (multiple) state.urls.push(r.url); else state.urls = [r.url]; draw(); }
+      try { const fd = new FormData(); fd.append('file', await shrink(file)); const r = await api('POST', A('/uploads'), fd); if (multiple) state.urls.push(r.url); else state.urls = [r.url]; draw(); }
       catch (e) { msg.textContent = file.name + ': ' + e.message; }
     }
     input.value = '';

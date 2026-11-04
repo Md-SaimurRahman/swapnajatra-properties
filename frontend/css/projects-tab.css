@@ -29,3 +29,7 @@ html.pj-mode #gd,html.pj-mode #cnt,html.pj-mode #moreBtn,html.pj-mode #propertie
 .pjl .x{top:16px;right:16px}.pjl .p{left:14px;top:50%}.pjl .n{right:14px;top:50%}
 .pjl .c{position:absolute;bottom:16px;left:0;right:0;text-align:center;color:#fff;font-size:14px}
 @media(max-width:700px){.pjg{grid-template-columns:1fr;gap:16px}.pjb h3{font-size:19px}.pjl .p{left:6px}.pjl .n{right:6px}}
+.pr2p .bt button[data-m="projects"]{border-left:1px solid var(--line)!important}
+html[data-theme="dark"]:root:root .pr2p .bt button[data-m="projects"]{border-left-color:#2a3d5a!important}
+html:root:root:not([data-theme="light"]) .pr2p .bt button[data-m="projects"]{border-left-color:#2a3d5a!important}
+@media(prefers-color-scheme:light){html:root:root:not([data-theme="dark"]) .pr2p .bt button[data-m="projects"]{border-left-color:var(--line)!important}}

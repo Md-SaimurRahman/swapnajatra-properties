@@ -12,7 +12,7 @@ const schemas = {
   prop: { listing: { type: 'enum', values: ['buy', 'rent'] }, type: { type: 'str', max: 60 }, perPage: { type: 'int', min: 1, max: 60 },
     featured: { type: 'bool' }, sold: { type: 'bool' }, rented: { type: 'bool' } },
   lead: { email: { type: 'email' }, waNumber: { type: 'str', max: 20 }, notifyEnquiry: { type: 'bool' }, notifyVisit: { type: 'bool' }, autoReply: { type: 'str', max: 1000 } },
-  site: { status: { type: 'enum', values: ['online', 'maintenance'] }, message: { type: 'str', max: 500 } },
+  site: { phoneLayout: { type: 'enum', values: ['flat', 'boxed'] }, status: { type: 'enum', values: ['online', 'maintenance'] }, message: { type: 'str', max: 500 } },
 };
 const PUBLIC_GROUPS = ['company', 'social', 'brand', 'prefs', 'prop', 'site']; // 'lead' is private
 

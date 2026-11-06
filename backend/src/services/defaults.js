@@ -19,7 +19,7 @@ const SETTINGS = {
   prefs: { lang: 'en', theme: 'light', showWa: true, showMenu: true },
   prop: { listing: 'buy', type: '', perPage: 12, featured: true, sold: true, rented: true },
   lead: { email: '', waNumber: '', notifyEnquiry: false, notifyVisit: false, autoReply: '' },
-  site: { status: 'online', message: 'Our website is under maintenance. Please check back soon.' },
+  site: { phoneLayout: 'flat', status: 'online', message: 'Our website is under maintenance. Please check back soon.' },
 };
 
 // key -> [English, Bangla]. Bangla only where the original site already had an exact translation.

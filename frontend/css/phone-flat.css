@@ -1,0 +1,29 @@
+/* Phone only (only when admin picks "Full width" in Settings) (max 560px): full-width, flat sections. No inset rounded boxes, no card shadows.
+   Fonts, colours and content are unchanged. Laptop is untouched. */
+@media(max-width:560px){
+/* hero */
+html.swp-flat:root:root #h2{padding:0!important}
+html.swp-flat:root:root .h2in{border-radius:0!important}
+html.swp-flat:root:root .h2ch{margin:0!important;width:auto!important;border-radius:0!important;box-shadow:none!important;background:var(--sf)!important;border:0!important;border-bottom:1px solid var(--line)!important;padding:18px 20px!important}
+html.swp-flat:root:root .h2bar{margin:0!important;border-radius:0!important}
+/* properties */
+html.swp-flat:root:root .pr2b,html.swp-flat:root:root .bd2b{margin:0!important;border-radius:0!important}
+html.swp-flat:root:root .pr2b:after,html.swp-flat:root:root .bd2b:after{border-radius:0!important}
+html.swp-flat:root:root .pr2f{border-radius:0!important;box-shadow:none!important}
+html.swp-flat:root:root #properties.pr2>.w{padding:0!important;margin-top:0!important}
+html.swp-flat:root:root .pr2p{border-radius:0!important;box-shadow:none!important;border-width:0 0 1px!important;margin:0!important}
+html.swp-flat:root:root #properties.pr2 #cnt{padding:14px 16px 6px!important}
+html.swp-flat:root:root #properties.pr2 #gd{gap:0!important}
+html.swp-flat:root:root #properties.pr2 .card{border-radius:0!important;box-shadow:none!important;border-width:0 0 1px!important}
+html.swp-flat:root:root #properties.pr2 .empty{border-radius:0!important;border-width:0!important}
+html.swp-flat:root:root .pjc{border-radius:0!important;box-shadow:none!important;border-width:0 0 1px!important}
+html.swp-flat:root:root .pjg{gap:0!important}
+/* section wrappers */
+html.swp-flat:root:root #emi.em2,html.swp-flat:root:root #services.sv2,html.swp-flat:root:root #how.hw2,html.swp-flat:root:root #landcta.lc,html.swp-flat:root:root #contact.ct2{margin:0!important;border-radius:0!important}
+html.swp-flat:root:root .em2c{border-radius:0!important;box-shadow:none!important;margin-left:-10px!important;margin-right:-10px!important}
+html.swp-flat:root:root .em2r{border-radius:0!important}
+html.swp-flat:root:root .sv2c{border-radius:0!important;box-shadow:none!important}
+html.swp-flat:root:root #contact .ct2r,html.swp-flat:root:root #contact .ct2l>.ct2r,html.swp-flat:root:root #contact .ct2m .mini,html.swp-flat:root:root #contact .ct2f{border-radius:0!important;box-shadow:none!important}
+html.swp-flat:root:root #contact .ct2mh .ct2r{border:0!important;border-bottom:1px solid var(--line)!important;margin:0!important}
+html.swp-flat:root:root #contact .ct2mh{gap:0!important}
+}

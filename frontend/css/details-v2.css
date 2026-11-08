@@ -86,3 +86,5 @@ html:root:root #md .dv-dsc p.sub{margin:0!important;display:block!important;-web
 html:root:root #md .dv-dsc .dv-rm{display:none!important}
 html:root:root #md .gl{align-self:stretch}
 }
+/* property cards: photo fills the whole picture area (no side gaps) */
+html:root:root .card .ph img{object-fit:cover!important;object-position:center!important}

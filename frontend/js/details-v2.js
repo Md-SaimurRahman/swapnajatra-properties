@@ -81,8 +81,12 @@ function enhance(){
   rm.onclick=function(){d.classList.toggle("open");lab()};d.insertAdjacentElement("afterend",rm)}
  /* laptop: description goes under the photo so both columns fill evenly */
  if(d){var ph=document.createComment("dv"),box=document.createElement("div"),mq=window.matchMedia("(min-width:701px)");box.className="dv-dsc";d.parentNode.insertBefore(ph,d);gl.appendChild(box);
-  var place=function(){if(mq.matches){box.appendChild(d);var r=$(".dv-rm",mi)||$(".dv-rm",box);if(r)box.appendChild(r)}else{ph.parentNode.insertBefore(d,ph.nextSibling);var r2=$(".dv-rm",box);if(r2)d.insertAdjacentElement("afterend",r2)}};
-  place();(mq.addEventListener?mq.addEventListener("change",place):mq.addListener(place))}
+  var mimg=$(".gl .m img",mb);
+  var place=function(){var w=mimg?mimg.offsetWidth:0,under=mq.matches&&(!mimg||!mimg.complete||w>=400||w===0);
+   if(under){box.appendChild(d);var r=$(".dv-rm",mi)||$(".dv-rm",box);if(r)box.appendChild(r)}else{ph.parentNode.insertBefore(d,ph.nextSibling);var r2=$(".dv-rm",box);if(r2)d.insertAdjacentElement("afterend",r2)}};
+  place();(mq.addEventListener?mq.addEventListener("change",place):mq.addListener(place));window.addEventListener("resize",place);
+  if(mimg){mimg.addEventListener("load",place);new MutationObserver(place).observe(mimg,{attributes:true,attributeFilter:["src"]})}
+  var mm=$(".gl .m",mb);if(mm)new MutationObserver(function(){var n=$(".gl .m img",mb);if(n&&n!==mimg){mimg=n;n.addEventListener("load",place);place()}}).observe(mm,{childList:true,subtree:true})}
  /* action buttons */
  var bar=mi.lastElementChild;if(bar&&bar.tagName==="DIV"){bar.classList.add("dv-bar");var bs=$$("a.btn,button.btn",bar);
   var bi=[IC.wa,IC.phone,IC.cal];bs.forEach(function(b,i){if(bi[i])b.insertAdjacentHTML("afterbegin",bi[i])})}

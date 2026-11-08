@@ -81,10 +81,13 @@ html:root:root #md .gl .m{aspect-ratio:auto!important;height:auto!important;min-
 html:root:root #md .gl .m img{display:block!important;width:100%!important;height:auto!important;max-width:100%!important;max-height:none!important;object-fit:fill!important}
 html:root:root #md .gl{align-self:start}
 @media(min-width:701px){
-html:root:root #md .dv-dsc{padding:4px 18px 20px}
-html:root:root #md .dv-dsc p.sub{margin:0!important;display:block!important;-webkit-line-clamp:unset!important;overflow:visible!important}
-html:root:root #md .dv-dsc .dv-rm{display:none!important}
-html:root:root #md .gl{align-self:stretch}
+html:root:root #md .mb{grid-template-columns:auto minmax(340px,1fr)!important;width:auto!important;max-width:min(1000px,96vw)!important}
+html:root:root #md .gl{width:fit-content!important;max-width:min(620px,62vw)!important;align-self:start}
+html:root:root #md .gl .m{display:flex!important;justify-content:center}
+html:root:root #md .gl .m img{width:auto!important;height:auto!important;max-width:min(620px,62vw)!important;max-height:calc(94vh - 290px)!important;object-fit:contain!important}
+html:root:root #md .dv-dsc{padding:4px 18px 16px;max-width:min(620px,62vw)}
+html:root:root #md .dv-dsc p.sub{margin:0!important}
+}
 }
 /* property cards: photo fills the whole picture area (no side gaps) */
 html:root:root .card .ph img{object-fit:cover!important;object-position:center!important}

@@ -90,3 +90,9 @@ html:root:root #md .dv-dsc p.sub{margin:0!important}
 }
 /* property cards: photo fills the whole picture area (no side gaps) */
 html:root:root .card .ph img{object-fit:cover!important;object-position:center!important}
+/* same fonts as the rest of the site: Raleway for titles and prices (was an older serif font) */
+html:root:root #md .mi h2,html:root:root #md .mi .pr,html:root:root #md .mi .pr *{font-family:Raleway,"Hind Siliguri",sans-serif!important;font-weight:700!important}
+html:root:root #md .mi h2{font-size:28px!important;line-height:1.2!important;letter-spacing:0!important}
+html:root:root #md .mi .pr{font-size:23px!important}
+html:root:root #md .mi .pr s,html:root:root #md .mi .pr del{font-weight:600!important}
+html:root:root #md .mi .pr .dv-off,html:root:root #md .mi .pr [class*=off]{font-weight:700!important}

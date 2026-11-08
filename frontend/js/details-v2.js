@@ -95,3 +95,19 @@ new MutationObserver(function(){enhance()}).observe(md,{childList:true});
 /* open a shared link  ...?p=ID  */
 try{var m=/[?&]p=(\d+)/.exec(location.search);if(m){var id=m[1],tries=0,iv=setInterval(function(){var c=$('#gd .card[data-id="'+id+'"]');tries++;if(c){clearInterval(iv);setTimeout(function(){c.click()},300)}else if(tries>60)clearInterval(iv)},200)}}catch(e){}
 })();
+
+/* property cards: show only the facts that were filled in (hide "Office" placeholder and 0 baths / 0 sq ft) */
+(function(){
+ var g=document.getElementById("gd");if(!g)return;
+ var has=/[1-9১-৯]/,busy=0;
+ function tidy(){
+  if(busy)return;busy=1;
+  g.querySelectorAll(".card .sp3").forEach(function(sp){
+   var s=sp.querySelectorAll("span"),shown=0;
+   s.forEach(function(x,i){var t=x.textContent.trim(),hide=i===0?(!has.test(t)):!has.test(t);x.style.display=hide?"none":"";if(!hide)shown++});
+   sp.style.display=shown?"":"none";
+  });
+  busy=0;
+ }
+ new MutationObserver(tidy).observe(g,{childList:true,subtree:true,characterData:true});tidy();
+})();

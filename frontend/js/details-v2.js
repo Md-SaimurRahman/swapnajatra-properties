@@ -71,6 +71,9 @@ function enhance(){
  /* location pin, stat icons, amenity icons */
  if(loc)loc.insertAdjacentHTML("afterbegin",IC.pin);
  var si=[IC.bed,IC.bath,IC.area,IC.home];$$(".ov>div",mi).forEach(function(d,i){if(si[i])d.insertAdjacentHTML("afterbegin",si[i])});
+ /* show only the facts that were filled in (hide empty / 0 bedrooms, bathrooms, area) */
+ var ov=$(".ov",mi);if(ov){var cells=$$(":scope>div",ov),shown=0;cells.forEach(function(d,i){var b=$("b",d),v=b?b.textContent:"";if(i<3&&!/[1-9\u09e7-\u09ef]/.test(v)){d.style.display="none"}else shown++});
+  if(!shown)ov.style.display="none";else ov.style.setProperty("grid-template-columns","repeat("+shown+",1fr)","important")}
  $$(".tags span",mi).forEach(function(s){s.insertAdjacentHTML("afterbegin",amIcon(s.textContent))});
  /* description: Read more */
  var d=$("p.sub",mi);if(d&&d.textContent.length>150){d.classList.add("dv-clamp");var rm=document.createElement("button");rm.type="button";rm.className="dv-rm";

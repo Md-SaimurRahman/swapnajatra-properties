@@ -87,7 +87,7 @@ function buildField(f, val, ctx) {
     ctx.get[f.k] = () => input.checked;
   } else if (f.type === 'images' || f.type === 'image') {
     const state = { urls: f.type === 'images' ? [...(val || [])] : (val ? [val] : []) };
-    wrap.append(h('label', {}, f.label), uploader(state, f.type === 'images'));
+    wrap.append(h('label', {}, f.label), uploader(state, f.type === 'images', f.type === 'images' && /cover/i.test(f.label)));
     ctx.get[f.k] = () => (f.type === 'images' ? state.urls : (state.urls[0] || ''));
   } else {
     if (f.type === 'select') { input = h('select', { id }, f.options.map(o => { const [v, l] = Array.isArray(o) ? o : [o, o]; const op = h('option', { value: v }, l); if (String(val ?? '') === String(v)) op.selected = true; return op; })); }
@@ -117,11 +117,32 @@ async function shrink(file) {
   } catch (e) { return file; }
 }
 
-function uploader(state, multiple) {
+
+/* swp-cover-focus: choose which part of the cover photo shows on the cards */
+function fpOf(u){const m=/#fp=(\d{1,3}),(\d{1,3})/.exec(u||'');return m?[+m[1],+m[2]]:[50,50]}
+function fpPick(url,onSave){
+  const base=url.split('#')[0];let [x,y]=fpOf(url);
+  const ov=h('div',{class:'fpov'}),box=h('div',{class:'fpbox'}),img=h('img',{src:base,alt:'',draggable:'false'}),dot=h('div',{class:'fpdot'}),stage=h('div',{class:'fpst'},img,dot);
+  const pv=(cls,t)=>{const d=h('div',{class:'fppv '+cls},h('img',{src:base,alt:''}));return [d,h('small',{},t)]};
+  const [a,al]=pv('a','Laptop card'),[b,bl]=pv('b','Phone card');
+  const upd=()=>{dot.style.left=x+'%';dot.style.top=y+'%';[a,b].forEach(d=>d.firstChild.style.objectPosition=x+'% '+y+'%')};
+  const set=e=>{const r=img.getBoundingClientRect();x=Math.max(0,Math.min(100,Math.round((e.clientX-r.left)/r.width*100)));y=Math.max(0,Math.min(100,Math.round((e.clientY-r.top)/r.height*100)));upd()};
+  let drag=false;stage.onpointerdown=e=>{drag=true;stage.setPointerCapture(e.pointerId);set(e)};stage.onpointermove=e=>{if(drag)set(e)};stage.onpointerup=()=>{drag=false};
+  const close=()=>ov.remove();
+  box.append(h('h3',{},'Choose the part of the photo to show on the card'),h('p',{style:'color:var(--mut);margin:0 0 8px'},'Tap or drag on the photo. The spot you choose stays visible in the card.'),stage,
+    h('div',{class:'fppvs'},h('div',{},a,al),h('div',{},b,bl)),
+    h('div',{class:'row',style:'margin-top:12px;gap:8px'},
+      h('button',{class:'btn',type:'button',onclick:()=>{onSave(x===50&&y===50?base:base+'#fp='+x+','+y);close()}},'Save'),
+      h('button',{class:'btn o',type:'button',onclick:()=>{x=50;y=50;upd()}},'Center'),
+      h('button',{class:'btn o',type:'button',onclick:close},'Cancel')));
+  ov.append(box);document.body.append(ov);upd();
+}
+function uploader(state, multiple, focus) {
   const box = h('div'), list = h('div', { class: 'imgs' }), msg = h('p', { class: 'err' });
   const input = h('input', { type: 'file', accept: 'image/jpeg,image/png,image/gif,image/webp', multiple: multiple || undefined, 'aria-label': 'Upload image' });
-  const draw = () => list.replaceChildren(...state.urls.map((u, i) => h('div', { class: 'thumb' }, h('img', { src: u, alt: 'Preview' }),
-    h('button', { type: 'button', 'aria-label': 'Remove image', onclick: () => { state.urls.splice(i, 1); draw(); } }, '×'))));
+  const draw = () => list.replaceChildren(...state.urls.map((u, i) => h('div', { class: 'thumb' }, h('img', { src: u, alt: 'Preview', style: i === 0 && focus ? 'object-position:' + fpOf(u).join('% ') + '%' : undefined }),
+    h('button', { type: 'button', 'aria-label': 'Remove image', onclick: () => { state.urls.splice(i, 1); draw(); } }, '×'),
+    ...(focus && i === 0 ? [h('button', { type: 'button', class: 'fpb', onclick: () => fpPick(u, (nu) => { state.urls[0] = nu; draw(); }) }, 'Cover area')] : []))));
   input.onchange = async () => {
     msg.textContent = '';
     for (const file of [...input.files]) {

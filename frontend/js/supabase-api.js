@@ -31,7 +31,7 @@
   }
   function ownFile(url) {            // name of a file we uploaded to our bucket, else null
     if (typeof url !== 'string') return null;
-    var s = fixUrls(url);
+    var s = fixUrls(url).split('#')[0];
     if (s.indexOf(PUBLIC_BASE) !== 0) return null;
     var n = s.slice(PUBLIC_BASE.length);
     return /^[A-Za-z0-9._-]+$/.test(n) ? n : null;
@@ -40,7 +40,7 @@
     var names = (urls || []).map(ownFile).filter(Boolean);
     if (names.length) { try { await sb.storage.from(BUCKET).remove(names); } catch (e) { /* ignore */ } }
   }
-  var removedBetween = function (before, after) { var a = (after || []).map(fixUrls); return (before || []).filter(function (u) { return a.indexOf(fixUrls(u)) < 0; }); };
+  var removedBetween = function (before, after) { var a = (after || []).map(function (x) { return fixUrls(x).split('#')[0]; }); return (before || []).filter(function (u) { return a.indexOf(fixUrls(u).split('#')[0]) < 0; }); };
 
   function slugify(s) {
     var b = String(s || '').toLowerCase().normalize('NFKC').replace(/[^\p{L}\p{M}\p{N}]+/gu, '-').replace(/^-+|-+$/g, '').slice(0, 80);

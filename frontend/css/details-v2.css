@@ -1,0 +1,88 @@
+/* Property details v2 (laptop + phone). Colours and fonts are the site's own. */
+html:root:root #md .mb{overflow-y:auto}
+/* breadcrumb bar (also holds the close button) */
+html:root:root #md .dv-bc{grid-column:1/-1;display:flex;align-items:center;gap:8px;min-height:54px;padding:8px 14px 8px 18px;font-size:14px;color:var(--mut);background:var(--sf);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:8}
+html:root:root #md .dv-bc a{display:inline-flex;align-items:center;gap:6px;color:var(--ink);text-decoration:none;flex:none}
+html:root:root #md .dv-bc a:hover{color:var(--gold)}
+html:root:root #md .dv-bc svg{width:18px;height:18px;flex:none}
+html:root:root #md .dv-bc i{font-style:normal;opacity:.55;flex:none}
+html:root:root #md .dv-bc b{font-weight:600;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:1 1 auto}
+html:root:root #md .dv-bc .x{position:static!important;margin-left:auto;flex:none;width:36px;height:36px;border-radius:50%!important;border:1px solid var(--line)!important;background:var(--sf)!important;color:var(--ink)!important;display:grid;place-items:center;font-size:22px!important;line-height:1;padding:0;outline:0}
+/* gallery */
+html:root:root #md .gl{position:relative}
+html:root:root #md .dv-cnt{position:absolute;top:12px;right:12px;display:flex;align-items:center;gap:8px;z-index:3}
+html:root:root #md .dv-n{background:rgba(10,20,34,.74);color:#fff;border-radius:99px;padding:6px 13px;font-size:13px;font-weight:600}
+html:root:root #md .dv-fs{width:34px;height:34px;border-radius:10px;border:0;background:rgba(10,20,34,.74);color:#fff;display:grid;place-items:center;cursor:pointer;padding:0}
+html:root:root #md .dv-fs svg{width:18px;height:18px}
+html:root:root #md .th{gap:8px!important;padding:12px 14px!important}
+html:root:root #md .th button{flex:0 0 78px!important;border-radius:10px!important}
+html:root:root #md .th button.a{border-color:var(--gold)!important}
+/* info column */
+html:root:root #md .mi{padding:20px 24px 22px!important}
+html:root:root #md .dv-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 8px}
+html:root:root #md .mi .dv-row span.lc{display:inline-block!important;background:var(--tint)!important;color:var(--ink)!important;border-radius:99px!important;padding:6px 14px!important;font-size:13.5px;font-weight:600}
+html:root:root #md .dv-act{display:flex;gap:8px;flex:none}
+html:root:root #md .dv-act button{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--sf);color:var(--ink);display:grid;place-items:center;cursor:pointer;padding:0}
+html:root:root #md .dv-act svg{width:20px;height:20px}
+html:root:root #md .dv-act .dv-fav.on{color:#d6336c;border-color:#d6336c}
+html:root:root #md .dv-act .dv-fav.on svg{fill:#d6336c}
+html:root:root #md .mi h2{margin:6px 0 4px!important}
+html:root:root #md .mi div.lc{display:flex!important;align-items:center;gap:8px}
+html:root:root #md .mi div.lc svg{width:18px;height:18px;flex:none}
+/* stats row */
+html:root:root #md .ov{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:0!important;margin:16px 0!important;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+html:root:root #md .ov>div{background:none!important;border-radius:0!important;text-align:center;padding:14px 6px!important;font-size:12.5px!important;color:var(--mut)}
+html:root:root #md .ov>div+div{border-left:1px solid var(--line)}
+html:root:root #md .ov>div svg{display:block;width:24px;height:24px;margin:0 auto 6px;color:var(--gold)}
+html:root:root #md .ov b{font-size:15px;color:var(--ink);margin-bottom:2px}
+/* amenities */
+html:root:root #md .tags{gap:8px!important;margin:12px 0 16px!important}
+html:root:root #md .tags span{display:inline-flex;align-items:center;gap:8px;padding:8px 14px!important;background:var(--tint);border:1px solid var(--line);font-size:13.5px!important}
+html:root:root #md .tags span svg{width:18px;height:18px;color:var(--gold);flex:none}
+/* description */
+html:root:root #md .dv-clamp{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;margin-bottom:4px!important}
+html:root:root #md .dv-clamp.open{-webkit-line-clamp:unset;display:block}
+html:root:root #md .dv-rm{display:inline-flex;align-items:center;gap:4px;background:none;border:0;padding:0 0 14px;color:var(--gold);font:inherit;font-weight:700;cursor:pointer}
+html:root:root #md .dv-rm svg{width:16px;height:16px;transition:transform .2s}
+html:root:root #md .dv-rm.open svg{transform:rotate(180deg)}
+/* action buttons */
+html:root:root #md .dv-bar{display:flex!important;gap:10px!important}
+html:root:root #md .dv-bar .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap}
+html:root:root #md .dv-bar .btn svg{width:18px;height:18px;flex:none}
+/* full-screen photo */
+.dv-lb{position:fixed;inset:0;background:rgba(5,10,20,.96);z-index:300;display:flex;align-items:center;justify-content:center}
+.dv-li{max-width:96vw;max-height:88vh;display:flex;align-items:center;justify-content:center}
+.dv-li img,.dv-li svg{max-width:96vw;max-height:88vh;width:auto;height:auto;object-fit:contain;display:block}
+.dv-lb button{position:absolute;border:0;background:rgba(255,255,255,.16);color:#fff;font-size:30px;width:46px;height:46px;border-radius:50%;cursor:pointer;line-height:1}
+.dv-lx{top:14px;right:14px}.dv-lp{left:12px;top:50%}.dv-ln{right:12px;top:50%}
+.dv-lc{position:absolute;bottom:16px;left:0;right:0;text-align:center;color:#fff;font-size:14px}
+.dv-toast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,20px);background:#10294a;color:#fff;padding:10px 18px;border-radius:10px;z-index:400;opacity:0;transition:.25s;font-size:14px}
+.dv-toast.o{opacity:1;transform:translate(-50%,0)}
+/* phone: full-screen sheet, buttons always visible at the bottom */
+@media(max-width:700px){
+html:root:root #md{padding:0!important;align-items:stretch!important;background:var(--sf)!important}
+html:root:root #md .mb{display:block!important;width:100%!important;max-width:none!important;height:100%!important;max-height:none!important;border-radius:0!important;animation:none!important;-webkit-overflow-scrolling:touch}
+html:root:root #md .gl{width:100%!important;max-width:none!important}
+html:root:root #md .gl .m{aspect-ratio:4/3!important;background:var(--tint)!important}
+html:root:root #md .gl .m img{width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:contain!important}
+html:root:root #md .mi{padding:14px 16px 0!important}
+html:root:root #md .mi h2{font-size:28px!important}
+html:root:root #md .dv-bar{position:sticky;bottom:0;z-index:7;flex-wrap:nowrap!important;gap:8px!important;margin:14px -16px 0!important;padding:12px 16px calc(12px + env(safe-area-inset-bottom))!important;background:var(--sf);border-top:1px solid var(--line)}
+html:root:root #md .dv-bar .btn{flex:1 1 0;min-width:0;padding:12px 6px!important;font-size:12.5px!important}
+html:root:root #md .dv-bar #sv{flex:1.7 1 0}
+}
+html:root:root #md .ov b{white-space:nowrap}
+html:root:root #md .dv-bar .btn{padding:12px 10px!important;letter-spacing:.02em!important;font-size:12.5px!important;flex:1 1 auto}
+html:root:root #md .dv-bar .btn svg{width:16px;height:16px}
+@media(max-width:700px){html:root:root #md .dv-bar .btn{padding:12px 4px!important;font-size:11.5px!important;gap:5px;letter-spacing:0!important}}
+@media(max-width:700px){html:root:root #md .dv-bar .btn{flex:1 1 0!important;min-width:0!important;overflow:hidden}html:root:root #md .dv-bar #sv{flex:1.6 1 0!important}html:root:root #md .dv-bar #sv svg{display:none}}
+/* photo box follows the photo: no empty space for wide or tall pictures */
+html:root:root #md .gl .m{aspect-ratio:auto!important;height:auto!important;min-height:0!important;max-height:none!important;background:none!important;display:block!important;line-height:0}
+html:root:root #md .gl .m img{display:block!important;width:100%!important;height:auto!important;max-width:100%!important;max-height:none!important;object-fit:fill!important}
+html:root:root #md .gl{align-self:start}
+@media(min-width:701px){
+html:root:root #md .dv-dsc{padding:4px 18px 20px}
+html:root:root #md .dv-dsc p.sub{margin:0!important;display:block!important;-webkit-line-clamp:unset!important;overflow:visible!important}
+html:root:root #md .dv-dsc .dv-rm{display:none!important}
+html:root:root #md .gl{align-self:stretch}
+}

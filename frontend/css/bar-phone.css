@@ -1,0 +1,2 @@
+/* phone only: the navy info bar is simply there (no slide-in over the light background that looked like a white flash on refresh). Laptop unchanged. */
+@media(max-width:700px){html:root:root:root .h2bar{animation:none!important;opacity:1!important;transform:none}}

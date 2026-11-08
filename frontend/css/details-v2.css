@@ -88,6 +88,5 @@ html:root:root #md .gl .m img{width:auto!important;height:auto!important;max-wid
 html:root:root #md .dv-dsc{padding:4px 18px 16px;max-width:min(620px,62vw)}
 html:root:root #md .dv-dsc p.sub{margin:0!important}
 }
-}
 /* property cards: photo fills the whole picture area (no side gaps) */
 html:root:root .card .ph img{object-fit:cover!important;object-position:center!important}

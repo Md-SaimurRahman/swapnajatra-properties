@@ -1,0 +1,7 @@
+/* Phone only: equal-height cards, buttons on the same line */
+@media(max-width:640px){
+html:root:root #properties.pr2 #gd .card{display:flex;flex-direction:column}
+html:root:root #properties.pr2 #gd .card .cb{display:flex;flex-direction:column;flex:1 1 auto}
+html:root:root #properties.pr2 #gd .card .cb>.btn{margin-top:auto!important}
+html:root:root #properties.pr2 #gd .card .cb .pr{margin-bottom:0}
+}

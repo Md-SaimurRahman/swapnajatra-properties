@@ -1,7 +1,9 @@
-/* Phone only: equal-height cards, buttons on the same line */
+/* Phone only (max 640px): equal-height cards, buttons on one line, text stays left, cards visibly separate */
 @media(max-width:640px){
-html:root:root #properties.pr2 #gd .card{display:flex;flex-direction:column}
-html:root:root #properties.pr2 #gd .card .cb{display:flex;flex-direction:column;flex:1 1 auto}
-html:root:root #properties.pr2 #gd .card .cb>.btn{margin-top:auto!important}
+html:root:root #properties.pr2 #gd .card{display:flex;flex-direction:column;align-items:stretch}
+html:root:root #properties.pr2 #gd .card .cb{display:flex;flex-direction:column;align-items:stretch;text-align:left;flex:1 1 auto}
+html:root:root #properties.pr2 #gd .card .cb>.btn{margin-top:auto!important;align-self:stretch}
 html:root:root #properties.pr2 #gd .card .cb .pr{margin-bottom:0}
+html.swp-flat:root:root #properties.pr2 #gd{gap:10px!important;padding:0 10px!important;box-sizing:border-box}
+html.swp-flat:root:root #properties.pr2 #gd .card{border:1px solid rgba(120,130,150,.28)!important;border-radius:12px!important;overflow:hidden}
 }

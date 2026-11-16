@@ -1,0 +1,13 @@
+/* Phone only (max 560px): extra slim, polished Properties header strip. Laptop unchanged. */
+@media(max-width:560px){
+html:root:root:root:root .pr2e:before{content:"";display:block;width:34px;height:2px;border-radius:2px;margin-bottom:8px;background:linear-gradient(90deg,#f2c96b,rgba(242,201,107,.15))}
+html:root:root:root:root .pr2f{position:relative;align-items:stretch;background:linear-gradient(180deg,rgba(16,38,78,.96),rgba(8,22,50,.97))!important;-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);border:1px solid rgba(232,194,118,.28)!important;border-radius:12px!important;padding:10px 2px 9px!important;box-shadow:0 10px 24px rgba(4,12,30,.32),inset 0 1px 0 rgba(255,255,255,.08)!important;overflow:hidden}
+html:root:root:root:root .pr2f:before{content:"";position:absolute;left:18px;right:18px;top:0;height:2px;border-radius:0 0 2px 2px;background:linear-gradient(90deg,transparent,#f2c96b,transparent);opacity:.85}
+html:root:root:root:root .pr2f>div{position:relative;border-left:0!important;display:grid!important;grid-template-columns:auto 1fr;column-gap:0;row-gap:2px;align-items:center;align-content:center;padding:0 9px!important}
+html:root:root:root:root .pr2f>div+div:before{content:"";position:absolute;left:0;top:6%;bottom:6%;width:1px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.26),transparent)}
+html:root:root:root:root .pr2f svg{display:none!important;grid-column:1;grid-row:1;box-sizing:content-box;width:14px;height:14px;padding:6px;margin:0!important;border-radius:50%;border:1px solid rgba(232,194,118,.45);background:radial-gradient(circle at 30% 25%,rgba(242,201,107,.22),rgba(242,201,107,.06));font-size:14px!important;color:#f2c96b!important}
+html:root:root:root:root .pr2f b{grid-column:1/-1;grid-row:1;font-size:14px!important;letter-spacing:.01em;line-height:1.1}
+html:root:root:root:root .pr2f span{grid-column:1/-1;grid-row:2;font-size:10.5px!important;line-height:1.25;opacity:.88}
+html:root:root:root:root .pr2in{padding:12px 18px 16px!important;gap:14px!important}
+html:root:root:root:root .pr2t h2{margin:6px 0 8px!important}
+}

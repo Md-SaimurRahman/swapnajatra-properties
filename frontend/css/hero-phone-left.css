@@ -1,0 +1,6 @@
+/* Phone only (max 560px): hero buttons become boxes, heading + subtitle stay in a narrower left column */
+@media(max-width:560px){
+html:root:root .h2b a,html:root:root .h2b a.h2b1,html:root:root .h2b a.h2b2{border-radius:7px!important}
+html:root:root .h2in h1{max-width:78%!important;margin-right:auto!important}
+html:root:root .h2in .h2p{max-width:78%!important;margin-right:auto!important}
+}
